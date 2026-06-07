@@ -11,20 +11,26 @@ const config: Config = {
     extend: {
       colors: {
         base: "#000000",
-        surface: "#12161A",
-        subtle: "#1E252B",
-        "matrix-green": "#10B981",
-        "matrix-green-light": "#34D399",
-        "matrix-green-muted": "#064E3B",
-        aquamarine: "#06B6D4",
+        surface: "#0C0C0F",
+        subtle: "#232328",
+        // Crimson/rose accent system (Nexus AI aesthetic)
+        crimson: "#E11D48",
+        "crimson-light": "#FB7185",
+        "crimson-muted": "#4C0519",
+        rose: "#F43F5E",
+        // Backwards-compatible aliases — existing components reskin via these
+        "matrix-green": "#E11D48",
+        "matrix-green-light": "#FB7185",
+        "matrix-green-muted": "#4C0519",
+        aquamarine: "#9F1239",
         "error-red": "#EF4444",
         "text-main": "#FFFFFF",
-        "text-muted": "#94A3B8",
-        "text-neon": "#34D399",
+        "text-muted": "#9CA3AF",
+        "text-neon": "#FB7185",
       },
       fontFamily: {
-        sans: ["Inter", "Geist Sans", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
       animation: {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
@@ -37,8 +43,8 @@ const config: Config = {
       },
       keyframes: {
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(16, 185, 129, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(225, 29, 72, 0.35)" },
+          "50%": { boxShadow: "0 0 45px rgba(225, 29, 72, 0.65)" },
         },
         "border-trace": {
           "0%": { backgroundPosition: "0% 50%" },
@@ -67,19 +73,19 @@ const config: Config = {
       },
       backgroundImage: {
         "hero-aura":
-          "radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.03) 50%, rgba(0, 0, 0, 0) 100%)",
+          "radial-gradient(circle at center, rgba(225, 29, 72, 0.12) 0%, rgba(136, 19, 55, 0.05) 50%, rgba(0, 0, 0, 0) 100%)",
         "hero-aura-lg":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.12) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 100%)",
+          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(225, 29, 72, 0.18) 0%, rgba(136, 19, 55, 0.06) 40%, transparent 100%)",
         "card-glow":
-          "linear-gradient(90deg, rgba(16, 185, 129, 0.3) 0%, rgba(6, 182, 212, 0.3) 100%)",
+          "linear-gradient(90deg, rgba(225, 29, 72, 0.35) 0%, rgba(244, 63, 94, 0.3) 100%)",
         "text-gradient":
-          "linear-gradient(to right, #FFFFFF 30%, #A7F3D0 70%, #06B6D4 100%)",
+          "linear-gradient(to right, #FFFFFF 30%, #FDA4AF 70%, #E11D48 100%)",
         "text-gradient-green":
-          "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
+          "linear-gradient(135deg, #FB7185 0%, #E11D48 100%)",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };
 
 export default config;

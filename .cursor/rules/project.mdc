@@ -1,0 +1,38 @@
+---
+description: NEXUS.DEV project overview — brand, stack, goals, and non-negotiables
+alwaysApply: true
+---
+
+# NEXUS.DEV — Project Overview
+
+## Brand
+
+**NEXUS.DEV** is an AI code rescue & production engineering agency. It converts broken AI-generated prototypes (Bolt.new, Cursor, Lovable, Replit) into production-grade Next.js / Web3 applications. All purchase CTAs point to Fiverr (`https://www.fiverr.com/foxlancerr`).
+
+## Tech Stack
+
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 16 App Router (see AGENTS.md — breaking changes vs prior versions) |
+| UI | React 19 + TypeScript |
+| Styling | Tailwind CSS v4 via `@tailwindcss/postcss` |
+| Animation | Framer Motion 11 (scroll-triggered `useInView`) |
+| State | Zustand 5 |
+| Icons | Lucide React |
+| Accordion | Radix UI `@radix-ui/react-accordion` |
+| Utility | `clsx` + `tailwind-merge` via `lib/utils.ts` → `cn()` |
+
+## Architecture
+
+Single-page marketing site (`app/page.tsx`) composing 12 section components in `components/`. No API routes, no auth, no database. One route only: `/`.
+
+Section order: `AnimatedGrid` → `CursorGlow` → `Navbar` → `Hero` → `ValueAnchor` → `ServicePillars` → `CaseStudies` → `Deployments` → `Testimonials` → `FAQ` → `Pricing` → `Footer`.
+
+## Non-Negotiables
+
+- Every component is a **Client Component** (`"use client"`) — keep it that way unless explicitly changing to Server Components
+- All class merging uses `cn()` from `lib/utils.ts` — never raw string concatenation
+- Dark theme only: `<html className="dark">` — no light mode toggle
+- Tailwind v4 syntax: use `@import "tailwindcss"` in CSS, NOT `@tailwind` directives
+- No autoprefixer in postcss — Tailwind v4 handles it natively
+- Read `node_modules/next/dist/docs/` before using any Next.js API

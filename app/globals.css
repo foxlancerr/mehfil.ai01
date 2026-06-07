@@ -1,8 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @layer base {
   * {
@@ -15,17 +12,19 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
   }
 
   body {
-    font-family: "Inter", "Geist Sans", system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     background-color: #000000;
     color: #ffffff;
     overflow-x: hidden;
   }
 
+
   ::selection {
-    background-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(244, 63, 94, 0.3);
     color: #ffffff;
   }
 
@@ -38,33 +37,34 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1E252B;
+    background: #232328;
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2a3440;
+    background: #3a3a42;
   }
 }
 
 @layer components {
   .glass-panel {
-    background: rgba(18, 22, 26, 0.6);
+    background: rgba(12, 12, 15, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(30, 37, 43, 0.6);
+    border: 1px solid rgba(40, 40, 46, 0.6);
     box-shadow:
       0 4px 30px rgba(0, 0, 0, 0.5),
       inset 0 1px 1px rgba(255, 255, 255, 0.05);
   }
 
   .glass-panel-strong {
-    background: rgba(18, 22, 26, 0.85);
+    background: rgba(12, 12, 15, 0.85);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(30, 37, 43, 0.8);
+    border: 1px solid rgba(225, 29, 72, 0.18);
     box-shadow:
       0 8px 40px rgba(0, 0, 0, 0.6),
+      0 0 40px rgba(225, 29, 72, 0.06),
       inset 0 1px 1px rgba(255, 255, 255, 0.04);
   }
 
@@ -81,8 +81,8 @@
     padding: 1px;
     background: linear-gradient(
       90deg,
-      rgba(16, 185, 129, 0.3) 0%,
-      rgba(6, 182, 212, 0.3) 100%
+      rgba(225, 29, 72, 0.4) 0%,
+      rgba(244, 63, 94, 0.35) 100%
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -105,8 +105,8 @@
     background: linear-gradient(
       to right,
       #ffffff 30%,
-      #a7f3d0 70%,
-      #06b6d4 100%
+      #fda4af 70%,
+      #e11d48 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -114,7 +114,7 @@
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -123,7 +123,7 @@
   .dot-grid-bg {
     background-image: radial-gradient(
       circle,
-      rgba(30, 37, 43, 0.5) 1px,
+      rgba(40, 40, 46, 0.5) 1px,
       transparent 1px
     );
     background-size: 32px 32px;
@@ -131,18 +131,18 @@
 
   .line-grid-bg {
     background-image:
-      linear-gradient(rgba(30, 37, 43, 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30, 37, 43, 0.3) 1px, transparent 1px);
+      linear-gradient(rgba(40, 40, 46, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(40, 40, 46, 0.3) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-lg bg-matrix-green px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-matrix-green-light;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    @apply relative inline-flex items-center justify-center gap-2 rounded-lg bg-matrix-green px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-matrix-green-light hover:text-black;
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.35);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 40px rgba(225, 29, 72, 0.55);
   }
 
   .btn-glass {
@@ -201,5 +201,15 @@
 }
 
 [data-state="open"] > .accordion-trigger {
-  border-bottom-color: rgba(16, 185, 129, 0.2);
+  border-bottom-color: rgba(225, 29, 72, 0.25);
+}
+
+/* ── Hide native cursor globally — custom terminal cursor takes over ── */
+@media (pointer: fine) {
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    cursor: none !important;
+  }
 }

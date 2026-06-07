@@ -1,0 +1,93 @@
+---
+description: Tailwind CSS v4 rules — new API, CSS-first config, forbidden patterns
+globs: **/*.css,**/*.tsx,**/*.ts
+alwaysApply: false
+---
+
+# Tailwind CSS v4
+
+## Font Loading
+
+**Never** use `@import url("https://fonts.googleapis.com/...")` in `globals.css` with Tailwind v4. The `@tailwindcss/postcss` plugin inlines Tailwind as `@layer` blocks, which pushes any remaining CSS `@import url()` after those layers — invalid per CSS spec.
+
+**Always** load fonts via `next/font/google` in `app/layout.tsx`:
+
+```tsx
+import { Inter, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap" });
+
+// In JSX:
+<html className={`dark ${inter.variable} ${jetbrainsMono.variable}`}>
+```
+
+Then reference them as CSS variables in `tailwind.config.ts`:
+```ts
+fontFamily: {
+  sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+  mono: ["var(--font-jetbrains-mono)", "monospace"],
+}
+```
+
+## Import Syntax
+
+```css
+/* ✅ v4 — correct: all @import rules MUST come before @layer (which Tailwind generates) */
+@import url("https://fonts.googleapis.com/...");  /* external fonts first */
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* ❌ v3 — forbidden */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ❌ font import AFTER tailwindcss — causes "must precede all rules" parse error */
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/...");
+```
+
+> CSS rule: all `@import` statements must precede `@layer` and other rules. `@import "tailwindcss"` expands into `@layer` blocks during PostCSS processing, so any `@import url(...)` after it is illegal.
+
+## PostCSS Config
+
+```js
+// ✅ v4 — no autoprefixer needed (built-in)
+plugins: { "@tailwindcss/postcss": {} }
+
+// ❌ autoprefixer is redundant and causes errors in v4
+plugins: { "@tailwindcss/postcss": {}, "autoprefixer": {} }
+```
+
+## Custom Theme (tailwind.config.ts)
+
+Keep theme customization in `tailwind.config.ts` under `theme.extend`. The `@config` directive in `globals.css` loads it. Do NOT duplicate tokens in both the config and `@theme {}` blocks.
+
+## Animations
+
+Custom animations are defined in `tailwind.config.ts` under `theme.extend.animation` and `theme.extend.keyframes`. Do NOT install `tailwindcss-animate` — it is not v4 compatible and is unused in this project.
+
+## Class Utilities
+
+Always use `cn()` from `lib/utils.ts`:
+
+```tsx
+// ✅
+className={cn("base-class", condition && "conditional-class", className)}
+
+// ❌
+className={`base-class ${condition ? "conditional-class" : ""}`}
+```
+
+## Design Token Usage
+
+Custom colors (`matrix-green`, `aquamarine`, `surface`, `subtle`, `text-muted`, `text-neon`) are defined in `tailwind.config.ts` and usable as standard Tailwind classes:
+
+```tsx
+// ✅ Use semantic tokens
+className="bg-surface border-subtle text-text-muted text-matrix-green"
+
+// ❌ Raw hex values in className
+className="bg-[#12161A]"
+```

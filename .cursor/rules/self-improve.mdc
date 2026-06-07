@@ -1,0 +1,47 @@
+---
+description: Self-improvement rules — token efficiency, planning discipline, memory hygiene
+alwaysApply: true
+---
+
+# Self-Improvement Rules
+
+These rules exist to prevent token waste, reduce loop iterations, and maintain context quality across sessions.
+
+## Before Writing Any Code
+
+1. **Read first, write second.** Always read the target file before editing it. Never guess existing content.
+2. **Check for existing patterns.** Search the codebase before creating a new utility, component, or store slice.
+3. **One concern per file.** If a component exceeds ~150 lines, split it. Sections that share no state do not belong in the same file.
+4. **Confirm section IDs exist** before adding navbar anchor links — mismatched IDs are a common bug in this project.
+
+## Token Efficiency Rules
+
+- **Never re-read files you just read** in the same session unless you've edited them and need to verify.
+- **Never explain what you're doing in code comments** — let the code speak; only add comments for non-obvious intent.
+- **Avoid large rewrites of unchanged sections.** Use targeted `StrReplace` edits instead of full file rewrites.
+- **Check the memory/ folder first** before asking the user for project context — it may already be documented.
+- **Do not install packages without checking `package.json` first** — many packages are already listed.
+
+## Linting & Quality
+
+- Run `ReadLints` after every substantive edit to catch type errors early.
+- Fix ALL TypeScript errors before completing a task — don't leave `any` types or unused imports.
+- Never use `// @ts-ignore` — fix the root cause.
+
+## Updating Memory
+
+After significant structural changes, update the relevant `memory/*.md` file:
+
+| Change | Update |
+|--------|--------|
+| New component added | `memory/architecture.md` |
+| Color/font token change | `memory/design-tokens.md` |
+| Brand/copy change | `memory/project-brief.md` |
+| New dependency added | `memory/architecture.md` |
+
+## Session Anti-Patterns to Avoid
+
+- Don't re-explore the entire codebase at the start of each session — read `memory/` instead
+- Don't create new components when editing existing ones would suffice
+- Don't add `console.log` debug statements — use TypeScript types to enforce correctness
+- Don't run `npm install` for packages already in `node_modules` — check first

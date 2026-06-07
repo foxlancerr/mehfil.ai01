@@ -1,0 +1,36 @@
+---
+description: Project memory — read memory/ folder for context before asking the user
+alwaysApply: true
+---
+
+# Project Memory
+
+This project maintains a `memory/` folder at the workspace root. **Always read these files before asking the user for context about the project.**
+
+## Memory Files
+
+| File | Contains |
+|------|---------|
+| `memory/project-brief.md` | Brand identity, target audience, CTAs, conversion goals |
+| `memory/design-tokens.md` | Full color palette, typography scale, component classes |
+| `memory/architecture.md` | File structure, dependency map, component inventory |
+
+## Reading Priority
+
+When starting a task:
+
+1. Check if the task is in `memory/` — read the relevant file
+2. If not found, use Grep/Glob to search the codebase
+3. Only ask the user if both above fail
+
+## Updating Memory
+
+After completing a task that changes structure or tokens:
+
+```
+memory/architecture.md  → new/removed components, new dependencies
+memory/design-tokens.md → new color tokens, new CSS classes
+memory/project-brief.md → copy changes, new CTA targets, brand updates
+```
+
+Keep each memory file **under 200 lines**. If it grows larger, split into sub-files (e.g. `memory/components/*.md`).

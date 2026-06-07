@@ -1,0 +1,111 @@
+---
+description: NEXUS.DEV design system — dark cyber aesthetic, tokens, components, layout patterns
+globs: **/*.tsx,**/*.css
+alwaysApply: false
+---
+
+# NEXUS.DEV Design System
+
+> Reference: https://nexusai.framer.website — use as design north-star for layout hierarchy, section structure, pricing tables, FAQ, and CTA patterns.
+
+## Visual Identity
+
+**Dark crimson engineering aesthetic.** Pure-black base, crimson + rose-red accents, deep-red ambient glows, glassmorphism panels, monospace labels. Mirrors `https://nexusai.framer.website`.
+
+## Color Tokens
+
+> Legacy `matrix-green*` / `aquamarine` keys are retained as aliases that now resolve to crimson values.
+> Use the `crimson*` / `rose` tokens below in new code.
+
+| Token | Hex | Use |
+|-------|-----|-----|
+| `base` | `#000000` | Page background |
+| `surface` | `#0C0C0F` | Card/panel fill |
+| `subtle` | `#232328` | Borders, dividers |
+| `crimson` | `#E11D48` | Primary CTA, accents |
+| `crimson-light` | `#FB7185` | Hover states, neon labels |
+| `crimson-muted` | `#4C0519` | Muted crimson fills |
+| `rose` | `#F43F5E` | Secondary accent |
+| `text-main` | `#FFFFFF` | Body text |
+| `text-muted` | `#9CA3AF` | Secondary text |
+| `text-neon` | `#FB7185` | Labels, badges, neon text |
+
+## Typography
+
+- **Headings:** Inter, `font-bold` or `font-extrabold`, gradient text via `.text-gradient-hero` or `.text-gradient-accent`
+- **Body:** Inter, `text-text-muted` for secondary content
+- **Labels/badges:** JetBrains Mono, `font-mono text-xs uppercase tracking-widest text-text-neon`
+- **Code snippets:** `font-mono text-matrix-green`
+
+## CSS Component Classes
+
+| Class | Use |
+|-------|-----|
+| `.glass-panel` | Standard card surface |
+| `.glass-panel-strong` | Hero/featured card |
+| `.glow-border` | Hover gradient border effect |
+| `.text-gradient-hero` | White→mint→cyan gradient heading |
+| `.text-gradient-accent` | Green→cyan gradient text |
+| `.btn-primary` | Primary CTA (green, glowing) |
+| `.btn-glass` | Secondary CTA (glass dark) |
+| `.section-label` | Pill badge above section headings |
+| `.browser-frame` | Dark browser chrome mockup |
+| `.dot-grid-bg` | Dot grid section background |
+| `.line-grid-bg` | Line grid section background |
+
+## Section Layout Pattern
+
+Every section follows this exact hierarchy (inspired by Nexus AI reference):
+
+```tsx
+<section id="section-id" className="relative py-24 sm:py-32">
+  {/* 1. Section label pill */}
+  <span className="section-label">// LABEL TEXT</span>
+
+  {/* 2. Heading with gradient accent */}
+  <h2 className="text-4xl font-bold">
+    Plain text{" "}
+    <span className="text-gradient-accent">Accented word</span>
+  </h2>
+
+  {/* 3. Subheading in text-muted */}
+  <p className="text-text-muted text-lg max-w-2xl">...</p>
+
+  {/* 4. Content cards in grid */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+    <div className="glass-panel glow-border rounded-xl p-6">...</div>
+  </div>
+</section>
+```
+
+## Pricing Card Pattern (Nexus AI Reference)
+
+Three tiers: Basic / Standard / Premium (maps to Professional / Small Team / Enterprise from reference).
+
+```tsx
+// Featured card gets ring-1 ring-matrix-green + glass-panel-strong
+// Non-featured gets glass-panel
+// All tiers: price → spec list → feature list → CTA button
+```
+
+## Spacing
+
+- Section padding: `py-24 sm:py-32`
+- Container: `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
+- Card gap: `gap-6` (standard) or `gap-8` (featured)
+- Internal card padding: `p-6` (standard) or `p-8` (featured)
+
+## Animation Conventions
+
+- Entrance: `opacity: 0 → 1`, `y: 30 → 0`, duration `0.6s`
+- Stagger children with 0.1s delay increments (`.stagger-1` through `.stagger-5`)
+- Hover transforms: `hover:-translate-y-1` on cards
+- Glow pulses: `animate-pulse-glow` on primary CTAs
+
+## Do NOT
+
+- Add light mode styles — dark only
+- Use raw hex colors in JSX — use Tailwind tokens
+- Add new font families — Inter and JetBrains Mono only
+- Use `@apply` in new CSS — inline Tailwind classes preferred
+- Add shadows not using `rgba(0,0,0,*)` or `rgba(16,185,129,*)` — keep to palette

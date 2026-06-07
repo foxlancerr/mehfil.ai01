@@ -1,0 +1,92 @@
+---
+description: Design reference from nexusai.framer.website — page patterns, section hierarchy, UX principles
+globs: **/*.tsx
+alwaysApply: false
+---
+
+# Design Reference — Nexus AI (https://nexusai.framer.website)
+
+Use this reference for layout decisions, section structure, and UX patterns when adding or modifying sections.
+
+## Global Layout Principles
+
+- **Centered content** with `max-w-7xl mx-auto` container
+- **Vertical rhythm** via consistent `py-24 sm:py-32` section padding
+- **Dark background** with subtle grid or dot texture behind sections
+- **Section → Label → H2 → Subtext → Content** hierarchy is universal
+
+## Navigation Pattern
+
+```
+[Logo + brand name]  [Links...]  [CTA button]
+```
+- Fixed/sticky on scroll with glass effect after scrolling past hero
+- Mobile: hamburger → slide-in drawer with vertical links
+- CTA: primary colored button linking to external conversion URL
+
+## Hero Section
+
+- **Status badge** top-center: animated ping dot + short status text (e.g. "Available for new projects")
+- **H1 headline** with gradient text spanning 2-3 lines, max 6-8 words
+- **Subheadline** in `text-muted`, 1-2 sentences, max-w-2xl centered
+- **Dual CTA row**: primary button (filled) + secondary button (ghost/glass)
+- **Social proof row**: tech stack logos or client badges below CTAs
+- **Background**: radial gradient aura emanating from center
+
+## Pricing Section (from nexusai.framer.website/pricing)
+
+Three-tier card layout:
+```
+[Basic]          [Standard ★ Featured]    [Premium]
+────────────     ───────────────────      ────────────
+Price/mo         Price/mo                 Price/mo
+──────           ──────                   ──────
+Spec list        Spec list                Spec list
+──────           ──────                   ──────
+Feature list ✓   Feature list ✓           Feature list ✓
+──────           ──────                   ──────
+[CTA button]     [CTA button - glowing]   [CTA button]
+```
+
+- **Featured card**: larger, ring accent border, glass-panel-strong, slightly elevated (scale or translate-y)
+- **Feature comparison table** below cards (Pro / Team / Unlimited columns)
+- **"Most Popular" badge** on featured tier
+
+## Feature/Integration Grid
+
+- Icon + title + short description cards
+- 3-column desktop, 2-column tablet, 1-column mobile
+- Hover: subtle glow border reveal, `-translate-y-1`
+- Category labels above grid groups (e.g. "Analytics", "CMS", "DevTools")
+
+## Testimonials
+
+- Quote card with: avatar → name → handle → star rating → quote text
+- 3-column grid or horizontal scroll carousel
+- `glass-panel` background, no harsh borders
+
+## FAQ Accordion
+
+- Radix `Accordion` with custom trigger styling
+- Question in `font-semibold text-white`, answer in `text-text-muted`
+- Expand icon rotates 45° on open (`data-state="open"`)
+- Border bottom appears on open state in `matrix-green/20`
+
+## Footer
+
+4-column layout: Brand column | Navigation | Resources | Stack/Links
+- Brand column: logo + tagline + social icons
+- Copyright bar at bottom with `text-text-muted text-sm`
+
+## Newsletter CTA (bottom of pages)
+
+- Full-width section or card with gradient border
+- Email input + submit button inline
+- Copy: "Join our newsletter" / "Get exclusive content"
+
+## Micro-interactions
+
+- All interactive cards: `transition-all duration-300 hover:-translate-y-1`
+- Buttons: glow box-shadow on hover (stronger than default)
+- Links: `text-matrix-green hover:text-matrix-green-light transition-colors`
+- Stat counters: animated count-up on scroll into view
