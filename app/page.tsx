@@ -33,11 +33,12 @@ export default function Home() {
       <Offers />
       <ValueAnchor />
       <ServicePillars />
-      <StatsBar />
-      <CaseStudies />
-      <Deployments />
+
+      <Deployments></Deployments>
       <Testimonials />
-      <TechShowcase />
+
+
+
       <Pricing />
       <FAQ />
       <About />
