@@ -65,7 +65,7 @@ export default function CursorGlow() {
     <>
       {/* ── Ambient crimson glow that drifts after cursor ── */}
       <motion.div
-        className="pointer-events-none fixed z-0 hidden lg:block"
+        className="pointer-events-none fixed z-10 hidden lg:block"
         style={{
           x: glowX,
           y: glowY,

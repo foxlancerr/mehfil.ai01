@@ -1,16 +1,16 @@
 ---
-description: NEXUS.DEV design system — dark cyber aesthetic, tokens, components, layout patterns
+description: Mehfil.ai.DEV design system — dark cyber aesthetic, tokens, components, layout patterns
 globs: **/*.tsx,**/*.css
 alwaysApply: false
 ---
 
-# NEXUS.DEV Design System
+# Mehfil.ai.DEV Design System
 
-> Reference: https://nexusai.framer.website — use as design north-star for layout hierarchy, section structure, pricing tables, FAQ, and CTA patterns.
+> Reference: https://Mehfil.aiai.framer.website — use as design north-star for layout hierarchy, section structure, pricing tables, FAQ, and CTA patterns.
 
 ## Visual Identity
 
-**Dark crimson engineering aesthetic.** Pure-black base, crimson + rose-red accents, deep-red ambient glows, glassmorphism panels, monospace labels. Mirrors `https://nexusai.framer.website`.
+**Dark crimson engineering aesthetic.** Pure-black base, crimson + rose-red accents, deep-red ambient glows, glassmorphism panels, monospace labels. Mirrors `https://Mehfil.aiai.framer.website`.
 
 ## Color Tokens
 
@@ -55,7 +55,7 @@ alwaysApply: false
 
 ## Section Layout Pattern
 
-Every section follows this exact hierarchy (inspired by Nexus AI reference):
+Every section follows this exact hierarchy (inspired by Mehfil.ai AI reference):
 
 ```tsx
 <section id="section-id" className="relative py-24 sm:py-32">
@@ -78,7 +78,7 @@ Every section follows this exact hierarchy (inspired by Nexus AI reference):
 </section>
 ```
 
-## Pricing Card Pattern (Nexus AI Reference)
+## Pricing Card Pattern (Mehfil.ai AI Reference)
 
 Three tiers: Basic / Standard / Premium (maps to Professional / Small Team / Enterprise from reference).
 

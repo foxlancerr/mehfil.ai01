@@ -16,6 +16,7 @@ import CursorGlow from "@/components/cursor-glow";
 import AnimatedGrid from "@/components/animated-grid";
 import SmoothScroll from "@/components/smooth-scroll";
 import Deployments from "@/components/deployments";
+import Chatbot from "@/components/chatbot";
 
 export default function Home() {
   return (
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Chatbot */}
+      <Chatbot />
     </main>
   );
 }
