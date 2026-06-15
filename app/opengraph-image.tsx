@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mehfil.ai — Full-Service Digital Agency by Muhammad Asim";
+export const alt = "mehfil — Full-Service Digital Agency by Muhammad Asim";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -207,7 +207,7 @@ export default function Image() {
             fontSize: "15px",
           }}
         >
-          mehfil.ai
+          mehfil
         </div>
       </div>
     ),

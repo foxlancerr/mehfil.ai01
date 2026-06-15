@@ -1,17 +1,17 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Chatbot Configuration — Mehfil.ai.DEV / Mehfil.ai
+// Chatbot Configuration — mehfil.DEV / mehfil
 // All static content lives here. Swap resolveResponse() for a live API call
 // when ready — the UI component requires no changes.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const CHATBOT_CONFIG = {
-  botName: "Mehfil.ai",
-  botTitle: "Mehfil.ai Assistant",
+  botName: "mehfil",
+  botTitle: "mehfil Assistant",
   botStatus: "Online · Replies instantly",
   avatarInitials: "NX",
 
   welcomeMessage:
-    "Hello! I'm Mehfil.ai, Mehfil.ai's virtual assistant.\n\nI can answer questions about our services, pricing, timelines, and tech stack — or connect you directly with the team.\n\nWhat would you like to know?",
+    "Hello! I'm mehfil, mehfil's virtual assistant.\n\nI can answer questions about our services, pricing, timelines, and tech stack — or connect you directly with the team.\n\nWhat would you like to know?",
 
   typingDelayMs: 900,
   fiverr: "https://www.fiverr.com/foxlancerr",
@@ -45,7 +45,7 @@ export const STATIC_RESPONSES: BotResponse[] = [
     id: "services",
     keywords: ["service", "services", "offer", "what do you do", "help", "work"],
     message:
-      "Mehfil.ai covers every layer of your digital presence under one roof:\n\n— Full-Stack Web Development (Next.js, React, TypeScript)\n— AI Automation & Chatbot Integration\n— Paid Ads & Performance Marketing\n— SEO & Organic Growth\n— Web3 & Blockchain Engineering\n— WordPress & WooCommerce\n— Brand Identity & Graphic Design\n— DevOps, Hosting & Deployment\n\nNo coordination overhead, no handoffs between freelancers. Which area is most relevant to your project?",
+      "mehfil covers every layer of your digital presence under one roof:\n\n— Full-Stack Web Development (Next.js, React, TypeScript)\n— AI Automation & Chatbot Integration\n— Paid Ads & Performance Marketing\n— SEO & Organic Growth\n— Web3 & Blockchain Engineering\n— WordPress & WooCommerce\n— Brand Identity & Graphic Design\n— DevOps, Hosting & Deployment\n\nNo coordination overhead, no handoffs between freelancers. Which area is most relevant to your project?",
     followUp: [
       { id: "ai",      label: "AI & automation",    trigger: "ai"      },
       { id: "web3",    label: "Web3 / blockchain",  trigger: "web3"    },

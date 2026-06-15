@@ -15,7 +15,7 @@ const CONTACT_OPTIONS = [
     icon: MessageCircle,
     label: "Message on WhatsApp",
     value: "+92 320 194 2001",
-    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F",
+    href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F",
     accent: "aquamarine",
   },
   {
@@ -42,14 +42,22 @@ export default function Contact() {
       {/* Ambient glow */}
       <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matrix-green/[0.04] blur-[140px] pointer-events-none" />
 
+      {/* Blueprint grid */}
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-60" />
+
       <div className="mx-auto max-w-4xl relative">
+        {/* Ghost watermark */}
+        <span aria-hidden className="ghost-text top-32 left-1/2 -translate-x-1/2 text-[70px] md:text-[120px]">
+          LET&apos;S TALK
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="relative mb-12 text-center"
         >
           <span className="section-label mb-4 inline-flex">
             <span className="mr-1.5">{'//'}</span> Let&apos;s Build Something
@@ -85,7 +93,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-                className="glass-panel glow-border group flex items-center gap-4 rounded-xl p-5 transition-all duration-300 hover:scale-[1.015]"
+                className="bracket-frame scan-hover group flex items-center gap-4 border border-subtle/50 bg-surface/40 p-5 transition-colors duration-300 hover:border-crimson/35"
               >
                 <div
                   className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors duration-300 ${

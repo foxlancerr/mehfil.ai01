@@ -1,6 +1,6 @@
 "use client";
 
-import { Terminal, Github, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Terminal, Github, Linkedin, Instagram, Facebook, MessageCircle, ArrowRight } from "lucide-react";
 
 const FOOTER_LINKS = [
   {
@@ -21,7 +21,7 @@ const FOOTER_LINKS = [
       { label: "LinkedIn",  href: "https://www.linkedin.com/in/foxlancerr/" },
       { label: "GitHub",    href: "https://github.com/foxlancerr" },
       { label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
-      { label: "WhatsApp",  href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
+      { label: "WhatsApp",  href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
     ],
   },
   {
@@ -41,16 +41,43 @@ const SOCIAL_LINKS = [
   { icon: Github,      label: "GitHub",    href: "https://github.com/foxlancerr" },
   { icon: Instagram,   label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
   { icon: Facebook,    label: "Facebook",  href: "https://www.facebook.com/profile.php?id=100091461979708" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-subtle/40 px-6 lg:px-12 py-16">
-      {/* Top ambient glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-crimson/20 to-transparent" />
+    <footer className="relative border-t border-subtle/40 px-6 lg:px-12 pb-12 pt-0">
+      {/* Top accent line */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-crimson/25 to-transparent" />
 
-      <div className="mx-auto max-w-[1100px]">
+      {/* Large editorial display word */}
+      <div className="relative overflow-hidden border-b border-subtle/30 py-12 lg:py-16">
+        <p
+          aria-hidden
+          className="select-none text-center font-black leading-none tracking-[-0.04em] text-white/[0.03]"
+          style={{ fontSize: "clamp(80px, 18vw, 200px)" }}
+        >
+          mehfil.
+        </p>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-text-muted/40">
+              One agency. Every skill you need to compete online.
+            </p>
+            <div className="mt-4 flex items-center justify-center gap-4">
+              <a
+                href="#contact"
+                className="btn-primary text-sm"
+              >
+                Start a Project
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-[1100px] pt-12">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -59,7 +86,7 @@ export default function Footer() {
                 <Terminal className="h-4 w-4 text-matrix-green" />
               </div>
               <span className="font-mono text-sm font-bold tracking-tight text-white">
-                Mehfil<span className="text-matrix-green">.ai</span>
+                Mehfil<span className="text-matrix-green"></span>
               </span>
             </a>
             <p className="mb-2 text-sm leading-relaxed text-text-muted/60">
@@ -115,10 +142,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-subtle/30 pt-8 sm:flex-row">
           <p className="font-mono text-xs text-text-muted/40">
-            &copy; {new Date().getFullYear()} Mehfil.ai · Built by Muhammad Asim
+            &copy; {new Date().getFullYear()} mehfil · Built by Muhammad Asim
           </p>
           <p className="font-mono text-xs text-text-muted/30">
-            Mehfil.ai — One agency. Every skill you need.
+            mehfil — One agency. Every skill you need.
           </p>
         </div>
       </div>

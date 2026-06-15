@@ -1,8 +1,8 @@
-# Mehfil.ai.DEV — Design Tokens & Component Classes
+# mehfil.DEV — Design Tokens & Component Classes
 
 ## Color Palette
 
-> Theme: **Crimson / rose-red on pure black** (Mehfil.ai AI aesthetic — `https://Mehfil.aiai.framer.website`).
+> Theme: **Crimson / rose-red on pure black** (mehfil AI aesthetic — `https://mehfilai.framer.website`).
 > NOTE: the legacy `matrix-green*` / `aquamarine` / `text-neon` token keys are retained as
 > **aliases that now resolve to crimson values**, so existing components reskin without renaming.
 > Prefer the new `crimson*` / `rose` tokens in new code.
@@ -82,6 +82,16 @@
 
 ### Section Labels
 - `.section-label` — mono pill badge, `text-text-neon`, `bg-surface/50`, `border-subtle`
+- `.coord-label` — mono coordinate/registration marker, `text-crimson/50`, `tracking-[0.3em]` (e.g. `§ 02 / SERVICES`)
+
+### Engineered "Framed" Aesthetic (design-audit additions)
+- `.bracket-frame` — L-shaped crimson corner brackets (top-left + bottom-right) on a `relative` element; brighten on `:hover`
+- `.bracket-corners-tr` — adds the opposite two corners (top-right + bottom-left); reacts to parent `.group:hover`
+- `.blueprint-grid` — crimson 48px line grid, radial-masked to fade at edges (per-section background texture)
+- `.dot-grid-fade` — 28px dot grid, radial-masked to fade at edges
+- `.ghost-text` — oversized outlined watermark text behind headers (`-webkit-text-stroke`, `z-0`)
+- `.scan-hover` — crimson scan-line sweep on `:hover` (replaces generic card scale); uses `scan-sweep` keyframe
+- `.animate-grain` — film-grain jitter (`grain-shift` keyframe, `steps(4)`); applied to the global noise overlay
 
 ### Browser Mockups
 - `.browser-frame` — dark container with rounded corners
@@ -96,8 +106,34 @@
 | Context | Value |
 |---------|-------|
 | Section vertical | `py-24 sm:py-32` |
-| Container | `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8` |
+| Container | `max-w-[1100px] mx-auto px-6 lg:px-12` |
 | Card padding standard | `p-6` |
 | Card padding featured | `p-8` |
 | Grid gap standard | `gap-6` |
 | Grid gap featured | `gap-8` |
+
+## Section Layout Differentiation (post-redesign)
+
+Each section now has a distinct visual rhythm — avoid making them look the same:
+
+| Section | Layout Pattern |
+|---------|----------------|
+| Hero | Split: left editorial headline (7col) + right metrics cluster (5col) |
+| ValueAnchor | Numbered editorial list with `divide-y` horizontal rules (no cards) |
+| ServicePillars | Asymmetric 6-col bento grid |
+| Pricing | Desktop: feature comparison table; Mobile: stacked cards |
+| FAQ | Two-column: sticky left header + stats; right accordion |
+| Footer | Large `clamp(80px, 18vw, 200px)` "mehfil." display word + standard 4-col links |
+
+## Typography Hierarchy (premium scale)
+
+| Use | Class | Notes |
+|-----|-------|-------|
+| Display hero | `text-[clamp(40px,8vw,88px)] font-black tracking-[-0.03em] leading-[0.92]` | Hero only |
+| Section heading | `text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight` | Sections |
+| Body | `text-sm md:text-base leading-relaxed text-text-muted` | Paragraphs |
+| Label | `coord-label` or `section-label` | Above headings |
+
+## Accordion Keyframes (globals.css)
+
+`slideDown` and `slideUp` keyframes are now defined in `globals.css` for Radix Accordion content animation using `--radix-accordion-content-height` CSS variable.

@@ -46,7 +46,7 @@ export default function Navbar() {
               <Terminal className="h-4 w-4 text-matrix-green" />
             </div>
               <span className="font-mono text-sm font-bold tracking-tight text-white">
-                Mehfil<span className="text-matrix-green">.ai</span>
+                Mehfil<span className="text-matrix-green"></span>
               </span>
           </a>
 
@@ -92,7 +92,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-16 z-40 glass-panel-strong border-b border-subtle/50 p-4 lg:hidden"
+            className="fixed h-full inset-x-0 top-16 z-40 glass-panel-strong border-b border-subtle/50 p-4 lg:hidden"
           >
             <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (

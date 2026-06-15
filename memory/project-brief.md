@@ -1,13 +1,13 @@
-# Mehfil.ai — Project Brief
+# mehfil — Project Brief
 
 ## Brand Identity
 
-- **Name:** Mehfil.ai
+- **Name:** mehfil
 - **Tagline:** One agency. Every skill you need to compete online.
 - **Category:** Full-service digital agency — web dev, AI automation, SEO, digital marketing, Web3, WordPress, graphic design, deployment
 - **Voice:** Confident, results-driven, direct. Outcome-focused language. No fluff.
 - **Founded by:** Muhammad Asim — AI automation & scalable web architecture specialist
-- **Legal name:** Mehfil.ai
+- **Legal name:** mehfil
 
 ## Target Audience
 

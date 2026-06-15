@@ -420,7 +420,7 @@ export default function Chatbot() {
                   <div className="px-4 py-1.5 flex items-center justify-center border-t border-white/[0.04]"
                     style={{ background: "#08080b" }}>
                     <p className="text-[9px] text-white/15 font-mono tracking-widest uppercase">
-                      Powered by <span className="text-crimson/40">Mehfil.ai</span>
+                      Powered by <span className="text-crimson/40">mehfil</span>
                     </p>
                   </div>
                 </motion.div>

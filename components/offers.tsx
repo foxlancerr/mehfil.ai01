@@ -40,7 +40,7 @@ const OFFERS: OfferCard[] = [
     ],
     urgency: "Only 5 free audits / month",
     cta: "Claim free audit",
-    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27d%20like%20to%20claim%20my%20free%20website%20%26%20ads%20audit.%20Can%20you%20schedule%20me%20in%3F",
+    href: "https://wa.me/923201942001?text=Hi%20mehfil!%20I%27d%20like%20to%20claim%20my%20free%20website%20%26%20ads%20audit.%20Can%20you%20schedule%20me%20in%3F",
     external: true,
   },
   {
@@ -59,7 +59,7 @@ const OFFERS: OfferCard[] = [
     price: "$310",
     priceWas: "$420",
     cta: "Get the bundle",
-    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27m%20interested%20in%20the%20Website%20%2B%20First%20Month%20Ads%20bundle%20(%24310).%20Can%20we%20discuss%20the%20details%3F",
+    href: "https://wa.me/923201942001?text=Hi%20mehfil!%20I%27m%20interested%20in%20the%20Website%20%2B%20First%20Month%20Ads%20bundle%20(%24310).%20Can%20we%20discuss%20the%20details%3F",
     external: true,
   },
   {
@@ -77,7 +77,7 @@ const OFFERS: OfferCard[] = [
     price: "$55",
     priceWas: "$90",
     cta: "Start for $55",
-    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27d%20like%20to%20get%20started%20with%20the%20%2455%20Starter%20Landing%20Page.%20When%20can%20we%20kick%20off%3F",
+    href: "https://wa.me/923201942001?text=Hi%20mehfil!%20I%27d%20like%20to%20get%20started%20with%20the%20%2455%20Starter%20Landing%20Page.%20When%20can%20we%20kick%20off%3F",
     external: true,
   },
 ];

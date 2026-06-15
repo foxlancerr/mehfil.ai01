@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://mehfil.ai/sitemap.xml",
-    host: "https://mehfil.ai",
+    sitemap: "https://mehfil/sitemap.xml",
+    host: "https://mehfil",
   };
 }
