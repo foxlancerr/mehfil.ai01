@@ -71,4 +71,15 @@ All tiers link to Fiverr: `https://www.fiverr.com/foxlancerr`
 
 ## Section Order (page.tsx)
 
-Hero → ValueAnchor → ServicePillars → StatsBar → CaseStudies → Testimonials → Pricing → FAQ → About → Contact → Footer
+Hero → Offers → ValueAnchor → ServicePillars → Deployments → Testimonials → TechShowcase → Pricing → FAQ → About → Contact → Footer
+
+## Promotional Offers (Offers section — June, ends June 30)
+
+| Offer | Hook | Price | CTA → |
+|-------|------|-------|-------|
+| Free Website + Ads Audit (Most Wanted) | Lead magnet, 5 spots/mo | Free (worth ₨5,000) | #contact |
+| Website + 1 Month Ads Bundle (Most Popular) | Free first ad month | ₨85,000 (was ₨115,000) | Fiverr |
+| Free AI Chatbot (Free Add-on) | With any June website | Free (worth ₨20,000) | #contact |
+| First Project 30% Off (Limited Time) | New clients, code FIRSTPROJECT | 30% off | #contact |
+| Refer a Client (Refer & Earn) | ₨5,000 per referral, no cap | ₨5,000/referral | #contact |
+| ₨15,000 Starter Pack (Starter Deal) | 1-page landing, live in 3 days | ₨15,000 (was ₨25,000) | Fiverr |

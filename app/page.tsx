@@ -1,20 +1,21 @@
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
-import About from "@/components/about";
+import Offers from "@/components/offers";
 import ValueAnchor from "@/components/value-anchor";
 import ServicePillars from "@/components/service-pillars";
 import StatsBar from "@/components/stats-bar";
 import CaseStudies from "@/components/case-studies";
-import RescueProcess from "@/components/rescue-process";
-import Deployments from "@/components/deployments";
 import Testimonials from "@/components/testimonials";
 import TechShowcase from "@/components/tech-showcase";
-import FAQ from "@/components/faq";
 import Pricing from "@/components/pricing";
+import FAQ from "@/components/faq";
+import About from "@/components/about";
+import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import CursorGlow from "@/components/cursor-glow";
 import AnimatedGrid from "@/components/animated-grid";
 import SmoothScroll from "@/components/smooth-scroll";
+import Deployments from "@/components/deployments";
 
 export default function Home() {
   return (
@@ -29,23 +30,20 @@ export default function Home() {
 
       {/* Page Sections */}
       <Hero />
+      <Offers />
       <ValueAnchor />
       <ServicePillars />
-
-
-
-      {/* Rescue process — 4 step cards */}
-      <RescueProcess />
-
-      <Deployments />
+      {/* <StatsBar /> */}
+      {/* <CaseStudies /> */}
+      <Deployments></Deployments>
       <Testimonials />
 
-      {/* Tech stack showcase — horizontal card strip */}
-      <TechShowcase />
+   
 
-      <FAQ />
       <Pricing />
+      <FAQ />
       <About />
+      <Contact />
 
       {/* Footer */}
       <Footer />

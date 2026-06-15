@@ -128,7 +128,7 @@ export default function ServicePillars() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="space-y-4"
+          className="grid gap-4 xl:grid-cols-2"
         >
           {SERVICES.map((service) => {
             const Icon = service.icon;

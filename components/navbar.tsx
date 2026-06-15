@@ -7,6 +7,7 @@ import { useUIStore } from "@/store/use-store";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
+  { href: "#offers", label: "// Offers" },
   { href: "#services", label: "// Services" },
   { href: "#case-studies", label: "// Work" },
   { href: "#about", label: "// About" },
@@ -38,7 +39,7 @@ export default function Navbar() {
             : "bg-transparent"
         )}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-0">
+          <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-matrix-green/10 border border-matrix-green/20 group-hover:bg-matrix-green/20 transition-colors">

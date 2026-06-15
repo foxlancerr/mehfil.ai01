@@ -129,8 +129,8 @@ export default function About() {
             <div className="grid grid-cols-2 gap-3">
               {METRIC_CARDS.map((m) => (
                 <div key={m.label} className="glass-panel rounded-xl p-4 text-center">
-                  <p className="text-xl font-extrabold text-white tabular-nums">{m.value}</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-text-muted/60">
+                  <p className="text-lg font-extrabold text-white tabular-nums leading-tight">{m.value}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-text-muted/60 leading-snug">
                     {m.label}
                   </p>
                 </div>

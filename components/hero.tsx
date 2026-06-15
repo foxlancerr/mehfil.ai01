@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-hero-aura opacity-80" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto text-center">
+      <div className="relative z-10 mx-auto max-w-5xl w-full text-center">
         {/* Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

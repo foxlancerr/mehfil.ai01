@@ -19,6 +19,7 @@ agency/
 │   ├── footer.tsx           ← 4-column footer (Mehfil.ai branding)
 │   ├── hero.tsx             ← Full-viewport hero: badge, headline, dual CTAs, trust bar
 │   ├── navbar.tsx           ← Fixed navbar: logo, anchors, mobile menu (Zustand)
+│   ├── offers.tsx           ← #offers: June promo — 2 featured + 4 standard offer cards (bento)
 │   ├── pricing.tsx          ← #pricing: 3 tiers (Starter/Growth/Scale) with PKR+USD prices
 │   ├── service-pillars.tsx  ← #services: 8 numbered service cards
 │   ├── stats-bar.tsx        ← Credibility stats strip (10+ projects, 5★, 4th/600, 5+ countries)
