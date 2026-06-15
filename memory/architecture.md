@@ -1,4 +1,4 @@
-# NEXUS.DEV — Architecture & Dependency Map
+# Mehfil.ai.DEV — Architecture & Dependency Map
 
 ## File Structure
 
@@ -28,7 +28,10 @@ agency/
 │   ├── service-pillars.tsx  ← #services: 8 numbered service cards
 │   ├── stats-bar.tsx        ← Credibility stats strip (10+ projects, 5★, 4th/600, 5+ countries)
 │   ├── testimonials.tsx     ← #testimonials: 3 client quotes
+│   ├── chatbot.tsx          ← Floating chatbot widget (FAB + animated chat window, static responses)
 │   └── value-anchor.tsx     ← 3 value prop cards: strategy, one-team, conversion
+├── constants/
+│   └── chatbot-config.ts    ← Static chatbot responses, quick replies, bot config (swap for live API later)
 ├── lib/
 │   └── utils.ts             ← cn() = clsx + tailwind-merge
 ├── memory/                  ← Cursor AI context files (this folder)
@@ -42,7 +45,7 @@ agency/
 │   ├── tailwind-v4.mdc      ← Tailwind v4 rules
 │   ├── nextjs-patterns.mdc  ← Next.js 16 + React 19 patterns
 │   ├── design-system.mdc    ← Design tokens + component patterns
-│   ├── design-reference.mdc ← Nexus AI UX/layout reference
+│   ├── design-reference.mdc ← Mehfil.ai AI UX/layout reference
 │   ├── self-improve.mdc     ← Token efficiency + memory hygiene
 │   └── memory.mdc           ← When/how to read memory/ files
 ├── AGENTS.md                ← Next.js 16 breaking changes warning

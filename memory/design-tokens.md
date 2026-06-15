@@ -1,8 +1,8 @@
-# NEXUS.DEV — Design Tokens & Component Classes
+# Mehfil.ai.DEV — Design Tokens & Component Classes
 
 ## Color Palette
 
-> Theme: **Crimson / rose-red on pure black** (Nexus AI aesthetic — `https://nexusai.framer.website`).
+> Theme: **Crimson / rose-red on pure black** (Mehfil.ai AI aesthetic — `https://Mehfil.aiai.framer.website`).
 > NOTE: the legacy `matrix-green*` / `aquamarine` / `text-neon` token keys are retained as
 > **aliases that now resolve to crimson values**, so existing components reskin without renaming.
 > Prefer the new `crimson*` / `rose` tokens in new code.

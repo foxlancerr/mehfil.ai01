@@ -13,7 +13,7 @@ const config: Config = {
         base: "#000000",
         surface: "#0C0C0F",
         subtle: "#232328",
-        // Crimson/rose accent system (Nexus AI aesthetic)
+        // Crimson/rose accent system (Mehfil.ai AI aesthetic)
         crimson: "#E11D48",
         "crimson-light": "#FB7185",
         "crimson-muted": "#4C0519",
