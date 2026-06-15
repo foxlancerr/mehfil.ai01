@@ -106,8 +106,34 @@
 | Context | Value |
 |---------|-------|
 | Section vertical | `py-24 sm:py-32` |
-| Container | `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8` |
+| Container | `max-w-[1100px] mx-auto px-6 lg:px-12` |
 | Card padding standard | `p-6` |
 | Card padding featured | `p-8` |
 | Grid gap standard | `gap-6` |
 | Grid gap featured | `gap-8` |
+
+## Section Layout Differentiation (post-redesign)
+
+Each section now has a distinct visual rhythm — avoid making them look the same:
+
+| Section | Layout Pattern |
+|---------|----------------|
+| Hero | Split: left editorial headline (7col) + right metrics cluster (5col) |
+| ValueAnchor | Numbered editorial list with `divide-y` horizontal rules (no cards) |
+| ServicePillars | Asymmetric 6-col bento grid |
+| Pricing | Desktop: feature comparison table; Mobile: stacked cards |
+| FAQ | Two-column: sticky left header + stats; right accordion |
+| Footer | Large `clamp(80px, 18vw, 200px)` "mehfil." display word + standard 4-col links |
+
+## Typography Hierarchy (premium scale)
+
+| Use | Class | Notes |
+|-----|-------|-------|
+| Display hero | `text-[clamp(40px,8vw,88px)] font-black tracking-[-0.03em] leading-[0.92]` | Hero only |
+| Section heading | `text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight` | Sections |
+| Body | `text-sm md:text-base leading-relaxed text-text-muted` | Paragraphs |
+| Label | `coord-label` or `section-label` | Above headings |
+
+## Accordion Keyframes (globals.css)
+
+`slideDown` and `slideUp` keyframes are now defined in `globals.css` for Radix Accordion content animation using `--radix-accordion-content-height` CSS variable.

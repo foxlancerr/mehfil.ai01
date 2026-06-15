@@ -1,241 +1,314 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Zap, Rocket, Crown } from "lucide-react";
+import { Check, Minus, ArrowRight, Zap, Rocket, Crown } from "lucide-react";
 
 const TIERS = [
   {
+    id: "starter",
     name: "Starter",
-    tier: "Starter",
     icon: Zap,
-    bestFor: "Landing pages, small sites, single features",
-    price: "From $90",
-    priceUSD: "",
-    deliverable: "Single-page website or landing page — mobile-responsive, SEO-ready, and deployed live.",
-    features: [
-      "Single-page website or landing page",
-      "Mobile-responsive, SEO-ready",
-      "Deployed and live",
-      "3-day delivery",
-    ],
+    price: "$90",
+    priceNote: "from",
+    pricePKR: "from ₨25,000",
+    bestFor: "Landing pages, small sites",
+    delivery: "3-day delivery",
     cta: "Start My Project",
-    accent: "matrix-green",
-    popular: false,
+    featured: false,
   },
   {
+    id: "growth",
     name: "Growth",
-    tier: "Growth",
     icon: Rocket,
-    bestFor: "Full websites, SaaS MVPs, ad campaigns",
-    price: "From $270",
-    priceUSD: "",
-    deliverable: "Multi-page website or web app with backend, digital marketing setup, and SEO foundation.",
-    features: [
-      "Multi-page website or web app",
-      "Backend integration (database, auth, payments)",
-      "Digital marketing setup (Meta/Google Ads)",
-      "SEO foundation + analytics",
-      "7–14 day delivery",
-    ],
+    price: "$270",
+    priceNote: "from",
+    pricePKR: "from ₨75,000",
+    bestFor: "Full websites, SaaS MVPs",
+    delivery: "7–14 day delivery",
     cta: "Let's Talk Growth",
-    accent: "aquamarine",
-    popular: true,
+    featured: true,
   },
   {
+    id: "scale",
     name: "Scale",
-    tier: "Scale",
     icon: Crown,
-    bestFor: "Full-stack SaaS, Web3 apps, AI automation systems",
-    price: "Custom Quote",
-    priceUSD: "Book a Call",
-    deliverable: "Everything in Growth, plus AI workflows, Web3 integration, CI/CD pipelines, and ongoing support.",
-    features: [
-      "Everything in Growth, plus:",
-      "AI chatbot or automation workflow",
-      "Web3 / blockchain integration",
-      "CI/CD pipelines + cloud deployment",
-      "Ongoing support & optimization",
-    ],
-    cta: "Book My Free Call",
-    accent: "matrix-green",
-    popular: false,
+    price: "Custom",
+    priceNote: "quote",
+    pricePKR: "Book a Call",
+    bestFor: "SaaS, Web3, AI systems",
+    delivery: "Scoped per project",
+    cta: "Book a Free Call",
+    featured: false,
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.05 } },
-};
+const FEATURES: { label: string; starter: boolean | string; growth: boolean | string; scale: boolean | string }[] = [
+  { label: "Single-page or landing page",          starter: true,    growth: true,    scale: true    },
+  { label: "Multi-page website or web app",         starter: false,   growth: true,    scale: true    },
+  { label: "Mobile-responsive & SEO-ready",         starter: true,    growth: true,    scale: true    },
+  { label: "Backend integration (DB, auth, pay)",   starter: false,   growth: true,    scale: true    },
+  { label: "Digital marketing setup",               starter: false,   growth: true,    scale: true    },
+  { label: "SEO foundation + analytics",            starter: false,   growth: true,    scale: true    },
+  { label: "AI chatbot / automation workflow",      starter: false,   growth: false,   scale: true    },
+  { label: "Web3 / blockchain integration",         starter: false,   growth: false,   scale: true    },
+  { label: "CI/CD pipelines + cloud deployment",    starter: false,   growth: false,   scale: true    },
+  { label: "Ongoing support & retainer",            starter: false,   growth: false,   scale: true    },
+];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 64, scale: 0.94 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+function CheckCell({ has, featured }: { has: boolean | string; featured: boolean }) {
+  if (has === true) {
+    return (
+      <div className="flex items-center justify-center">
+        <Check
+          className={`h-4 w-4 ${featured ? "text-crimson" : "text-text-muted/60"}`}
+          strokeWidth={2.5}
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="flex items-center justify-center">
+      <Minus className="h-4 w-4 text-subtle/60" strokeWidth={1.5} />
+    </div>
+  );
+}
 
 export default function Pricing() {
   return (
     <section id="pricing" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-40" />
 
-      <div className="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matrix-green/[0.03] blur-[120px] pointer-events-none" />
+      <div className="relative mx-auto max-w-[1100px]">
 
-      {/* Blueprint grid */}
-      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-50" />
-
-      <div className="mx-auto max-w-[1100px] relative">
-        {/* Ghost watermark */}
-        <span aria-hidden className="ghost-text top-36 left-1/2 -translate-x-1/2 text-[80px] md:text-[140px]">
-          PRICING
-        </span>
-
-        {/* Section Header */}
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="relative mb-16 text-center"
+          className="mb-16"
         >
-          <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Transparent Pricing
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            No Hidden Fees. No Surprises.{" "}
-            <span className="text-gradient-accent">Just Results.</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
-            Choose your tier and get started. Every package links directly to our secure Fiverr
-            checkout for instant engagement.
-          </p>
+          <p className="coord-label mb-6">§ 05 / TRANSPARENT PRICING</p>
+          <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+            <h2 className="text-3xl font-black tracking-tight text-white md:text-4xl lg:text-[44px] lg:leading-[1.05]">
+              No Hidden Fees.<br />No Surprises.
+            </h2>
+            <p className="text-sm leading-relaxed text-text-muted lg:max-w-sm lg:ml-auto">
+              Pick your tier and get started. Every package links to our secure Fiverr
+              checkout. Scale as your business grows — not when your agency upsells you.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Pricing Cards */}
+        {/* ── Desktop comparison table ── */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-5 lg:grid-cols-3 items-start"
+          transition={{ duration: 0.6 }}
+          className="hidden overflow-x-auto md:block"
         >
-          {TIERS.map((tier) => {
-            const Icon = tier.icon;
-            const isCyan = tier.accent === "aquamarine";
-            return (
-              <motion.div
-                key={tier.tier}
-                variants={cardVariants}
-                className={`relative rounded-2xl transition-transform duration-300 hover:scale-[1.015] ${
-                  tier.popular
-                    ? "bracket-frame glass-panel-strong border border-matrix-green/30 lg:-mt-4 lg:mb-[-16px] rounded-none"
-                    : "glass-panel rounded-none glow-border"
-                }`}
-              >
-                {/* Popular Badge */}
-                {tier.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-matrix-green px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-black">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="p-7">
-                  {/* Icon + Tier */}
-                  <div className="mb-4 flex items-center gap-3">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-xl border ${
-                        tier.popular
-                          ? "border-matrix-green/30 bg-matrix-green/15"
-                          : isCyan
-                          ? "border-aquamarine/20 bg-aquamarine/10"
-                          : "border-matrix-green/20 bg-matrix-green/10"
-                      }`}
-                    >
-                      <Icon
-                        className={`h-5 w-5 ${
-                          tier.popular
-                            ? "text-matrix-green"
-                            : isCyan
-                            ? "text-aquamarine"
-                            : "text-matrix-green"
+          <div className="min-w-[680px]">
+            {/* Tier header row */}
+            <div className="grid grid-cols-[1fr_160px_160px_160px] border border-subtle/40 bg-surface/20">
+              <div className="border-r border-subtle/30 p-6">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted/35">
+                  Features / Plans
+                </span>
+              </div>
+              {TIERS.map((tier) => {
+                const Icon = tier.icon;
+                return (
+                  <div
+                    key={tier.id}
+                    className={`relative border-r border-subtle/30 p-5 text-center last:border-r-0 ${
+                      tier.featured ? "bg-crimson/[0.06]" : ""
+                    }`}
+                  >
+                    {tier.featured && (
+                      <div className="absolute -top-px left-0 right-0 h-px bg-crimson/50" />
+                    )}
+                    <div className="mb-2 flex items-center justify-center">
+                      <div
+                        className={`flex h-8 w-8 items-center justify-center rounded-lg border ${
+                          tier.featured
+                            ? "border-crimson/30 bg-crimson/15"
+                            : "border-subtle/50 bg-surface/60"
                         }`}
-                      />
+                      >
+                        <Icon className={`h-4 w-4 ${tier.featured ? "text-crimson" : "text-text-muted/50"}`} />
+                      </div>
                     </div>
-                    <div>
-                      <span className="block font-mono text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
-                        {tier.tier} Tier
+                    {tier.featured && (
+                      <span className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-crimson">
+                        Most Popular
                       </span>
-                      <h3 className="text-base font-bold text-white">{tier.name}</h3>
-                    </div>
+                    )}
+                    <p className={`font-mono text-[10px] uppercase tracking-widest ${tier.featured ? "text-crimson/70" : "text-text-muted/40"}`}>
+                      {tier.name}
+                    </p>
+                    <p className="mt-1 text-2xl font-black text-white">{tier.price}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-text-muted/35">{tier.priceNote}</p>
+                    <p className="mt-1 font-mono text-[9px] text-text-muted/30">{tier.pricePKR}</p>
                   </div>
+                );
+              })}
+            </div>
 
-                  {/* Best For */}
-                  <p className="mb-3 font-mono text-[11px] text-text-muted/60">
-                    Best for: {tier.bestFor}
-                  </p>
-
-                  {/* Price */}
-                  <div className="mb-5 flex items-baseline gap-2">
-                    <span className={`text-2xl font-extrabold ${isCyan ? "text-aquamarine" : "text-matrix-green"}`}>
-                      {tier.price}
-                    </span>
+            {/* Feature rows */}
+            {FEATURES.map((feature, i) => (
+              <div
+                key={feature.label}
+                className="grid grid-cols-[1fr_160px_160px_160px] border-b border-l border-r border-subtle/30 transition-colors duration-200 hover:bg-surface/15"
+              >
+                <div className="border-r border-subtle/25 px-6 py-3.5">
+                  <span className="text-sm text-text-muted">{feature.label}</span>
+                </div>
+                {(["starter", "growth", "scale"] as const).map((key) => (
+                  <div
+                    key={key}
+                    className={`border-r border-subtle/25 py-3.5 last:border-r-0 ${
+                      key === "growth" ? "bg-crimson/[0.025]" : ""
+                    }`}
+                  >
+                    <CheckCell has={feature[key]} featured={key === "growth"} />
                   </div>
+                ))}
+              </div>
+            ))}
 
-                  {/* Divider */}
-                  <div className="mb-5 h-px bg-gradient-to-r from-transparent via-subtle/60 to-transparent" />
-
-                  {/* Features */}
-                  <ul className="mb-8 space-y-3">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div
-                          className={`mt-0.5 flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full ${
-                            tier.popular
-                              ? "bg-matrix-green/15"
-                              : isCyan
-                              ? "bg-aquamarine/10"
-                              : "bg-matrix-green/10"
-                          }`}
-                        >
-                          <Check
-                            className={`h-3 w-3 ${
-                              tier.popular
-                                ? "text-matrix-green"
-                                : isCyan
-                                ? "text-aquamarine"
-                                : "text-matrix-green"
-                            }`}
-                          />
-                        </div>
-                        <span className="text-sm text-text-muted">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
+            {/* CTA row */}
+            <div className="grid grid-cols-[1fr_160px_160px_160px] border-b border-l border-r border-subtle/30 bg-surface/10">
+              <div className="border-r border-subtle/25 px-6 py-5">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted/30">
+                  Ready to start?
+                </p>
+              </div>
+              {TIERS.map((tier) => (
+                <div
+                  key={tier.id}
+                  className={`border-r border-subtle/25 p-4 last:border-r-0 ${
+                    tier.featured ? "bg-crimson/[0.06]" : ""
+                  }`}
+                >
                   <a
                     href="https://www.fiverr.com/foxlancerr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-300 ${
-                      tier.popular
-                        ? "bg-matrix-green text-white hover:bg-matrix-green-light hover:text-black shadow-[0_0_20px_rgba(225,29,72,0.35)] hover:shadow-[0_0_40px_rgba(225,29,72,0.55)]"
-                        : "border border-subtle bg-surface/40 text-white backdrop-blur-md hover:border-matrix-green/40 hover:bg-surface/60"
+                    className={`flex w-full items-center justify-center gap-1.5 rounded px-3 py-2.5 text-xs font-semibold transition-all duration-300 ${
+                      tier.featured
+                        ? "bg-crimson text-white hover:bg-crimson-light shadow-[0_0_20px_rgba(225,29,72,0.3)]"
+                        : "border border-subtle/60 bg-surface/40 text-text-muted hover:border-crimson/30 hover:text-white"
                     }`}
                   >
                     {tier.cta}
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-3 w-3" />
                   </a>
+                  <p className="mt-2 text-center font-mono text-[9px] uppercase tracking-widest text-text-muted/30">
+                    {tier.delivery}
+                  </p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── Mobile: stacked cards ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="grid gap-4 md:hidden"
+        >
+          {TIERS.map((tier, i) => {
+            const Icon = tier.icon;
+            return (
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`relative overflow-hidden border p-6 ${
+                  tier.featured
+                    ? "bracket-frame border-crimson/30 bg-crimson/[0.04]"
+                    : "border-subtle/40 bg-surface/30"
+                }`}
+              >
+                {tier.featured && (
+                  <div className="absolute left-0 top-0 right-0 h-px bg-crimson/50" />
+                )}
+
+                {/* Header */}
+                <div className="mb-5 flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl border ${
+                        tier.featured ? "border-crimson/30 bg-crimson/15" : "border-subtle/50 bg-surface/60"
+                      }`}
+                    >
+                      <Icon className={`h-5 w-5 ${tier.featured ? "text-crimson" : "text-text-muted/60"}`} />
+                    </div>
+                    <div>
+                      <p className={`font-mono text-[10px] uppercase tracking-widest ${tier.featured ? "text-crimson" : "text-text-muted/40"}`}>
+                        {tier.featured ? "Most Popular" : tier.name}
+                      </p>
+                      {tier.featured && (
+                        <p className="text-sm font-bold text-white">{tier.name}</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-2xl font-black text-white">{tier.price}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-text-muted/40">{tier.priceNote}</p>
+                  </div>
+                </div>
+
+                <p className="mb-4 font-mono text-[11px] text-text-muted/50">{tier.bestFor}</p>
+
+                {/* Features */}
+                <ul className="mb-5 space-y-2">
+                  {FEATURES.filter((f) => f[tier.id as "starter" | "growth" | "scale"]).map((f) => (
+                    <li key={f.label} className="flex items-center gap-2.5">
+                      <Check className={`h-3.5 w-3.5 shrink-0 ${tier.featured ? "text-crimson" : "text-text-muted/50"}`} strokeWidth={2.5} />
+                      <span className="text-sm text-text-muted">{f.label}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="https://www.fiverr.com/foxlancerr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex w-full items-center justify-center gap-2 rounded px-5 py-3 text-sm font-semibold transition-all duration-300 ${
+                    tier.featured
+                      ? "bg-crimson text-white hover:bg-crimson-light shadow-[0_0_20px_rgba(225,29,72,0.3)]"
+                      : "border border-subtle/60 bg-surface/40 text-white hover:border-crimson/30"
+                  }`}
+                >
+                  {tier.cta}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </motion.div>
             );
           })}
         </motion.div>
+
+        {/* Footer note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-6 text-center font-mono text-xs text-text-muted/35"
+        >
+          All packages link to Fiverr for secure checkout · Need something custom?{" "}
+          <a href="#contact" className="text-crimson/55 transition-colors hover:text-crimson">
+            Contact us directly →
+          </a>
+        </motion.p>
       </div>
     </section>
   );

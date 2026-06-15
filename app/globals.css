@@ -353,6 +353,17 @@
   }
 }
 
+/* ── Radix Accordion slide animations ── */
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
+}
+
 /* ── Film-grain jitter for the global noise overlay ── */
 @keyframes grain-shift {
   0%, 100% { transform: translate(0, 0); }
