@@ -41,8 +41,8 @@ const cardVariants = {
 
 export default function ValueAnchor() {
   return (
-    <section className="relative px-6 lg:px-8 py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
+      <div className="mx-auto max-w-[1100px]">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

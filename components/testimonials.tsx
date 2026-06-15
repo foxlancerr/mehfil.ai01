@@ -69,13 +69,13 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="testimonials" className="relative overflow-hidden px-6 lg:px-8 py-24 lg:py-32">
+    <section id="testimonials" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
       {/* Ambient glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/4 blur-3xl" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1100px]">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

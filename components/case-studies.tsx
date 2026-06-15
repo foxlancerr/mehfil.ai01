@@ -58,10 +58,10 @@ const PROJECTS = [
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="relative px-6 lg:px-8 py-24 lg:py-32">
+    <section id="case-studies" className="relative px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1100px]">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

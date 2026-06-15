@@ -58,13 +58,13 @@ const TECH = [
 
 export default function TechShowcase() {
   return (
-    <section className="relative overflow-hidden px-6 lg:px-8 py-24 lg:py-32">
+    <section className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
       {/* Background ambient glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/5 blur-3xl" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1100px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

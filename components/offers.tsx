@@ -160,7 +160,7 @@ const cardVariants = {
 
 export default function Offers() {
   return (
-    <section id="offers" className="relative px-6 py-24 lg:px-8 lg:py-32">
+    <section id="offers" className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-32">
       {/* top rule */}
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 

@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 lg:px-8 pt-16"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 lg:px-12 pt-16"
     >
       {/* Hero Aura */}
       <div className="absolute inset-0 bg-hero-aura-lg" />

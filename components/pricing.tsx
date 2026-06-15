@@ -9,8 +9,8 @@ const TIERS = [
     tier: "Starter",
     icon: Zap,
     bestFor: "Landing pages, small sites, single features",
-    price: "From ₨25,000",
-    priceUSD: "/ $90",
+    price: "From $90",
+    priceUSD: "",
     deliverable: "Single-page website or landing page — mobile-responsive, SEO-ready, and deployed live.",
     features: [
       "Single-page website or landing page",
@@ -27,8 +27,8 @@ const TIERS = [
     tier: "Growth",
     icon: Rocket,
     bestFor: "Full websites, SaaS MVPs, ad campaigns",
-    price: "From ₨75,000",
-    priceUSD: "/ $270",
+    price: "From $270",
+    priceUSD: "",
     deliverable: "Multi-page website or web app with backend, digital marketing setup, and SEO foundation.",
     features: [
       "Multi-page website or web app",
@@ -74,12 +74,12 @@ const cardVariants = {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative px-6 lg:px-8 py-24 lg:py-32">
+    <section id="pricing" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matrix-green/[0.03] blur-[120px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl relative">
+      <div className="mx-auto max-w-[1100px] relative">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -171,7 +171,6 @@ export default function Pricing() {
                     <span className={`text-2xl font-extrabold ${isCyan ? "text-aquamarine" : "text-matrix-green"}`}>
                       {tier.price}
                     </span>
-                    <span className="font-mono text-xs text-text-muted/60">{tier.priceUSD}</span>
                   </div>
 
                   {/* Divider */}

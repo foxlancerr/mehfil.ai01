@@ -47,8 +47,8 @@ function AnimatedNumber({ target, isDecimal }: { target: string; isDecimal?: boo
 
 export default function StatsBar() {
   return (
-    <section className="relative px-6 lg:px-8 py-6">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative px-6 lg:px-12 py-6">
+      <div className="mx-auto max-w-[1100px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

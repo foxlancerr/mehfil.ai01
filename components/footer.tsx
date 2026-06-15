@@ -43,11 +43,11 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-subtle/40 px-6 lg:px-8 py-16">
+    <footer className="relative border-t border-subtle/40 px-6 lg:px-12 py-16">
       {/* Top ambient glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-crimson/20 to-transparent" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1100px]">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
