@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import {
   Terminal, ArrowRight, Cpu, Globe,
-  Linkedin, Github, MessageCircle,
+  Linkedin, Github, Instagram, Facebook, MessageCircle,
 } from "lucide-react";
 
 const SOCIAL_LINKS = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/foxlancerr" },
-  { icon: Github, label: "GitHub", href: "https://github.com/foxlancerr" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001" },
+  { icon: Linkedin,    label: "LinkedIn",  href: "https://www.linkedin.com/in/foxlancerr/" },
+  { icon: Github,      label: "GitHub",    href: "https://github.com/foxlancerr" },
+  { icon: Instagram,   label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
+  { icon: Facebook,    label: "Facebook",  href: "https://www.facebook.com/profile.php?id=100091461979708" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27d%20like%20to%20discuss%20a%20project.%20Can%20we%20connect%3F" },
 ];
 
 const TECH = [
@@ -106,7 +108,7 @@ export default function About() {
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://linkedin.com/in/foxlancerr"
+                href="https://www.linkedin.com/in/foxlancerr/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-glass text-sm"

@@ -6,9 +6,13 @@
 agency/
 ├── app/
 │   ├── favicon.ico
-│   ├── globals.css          ← Tailwind v4 entry: @import "tailwindcss" + @config
-│   ├── layout.tsx           ← Root layout, SEO metadata, dark theme class
-│   └── page.tsx             ← Single page composition (15 sections)
+│   ├── globals.css            ← Tailwind v4 entry: @import "tailwindcss" + @config
+│   ├── layout.tsx             ← Root layout, full SEO metadata, 5× JSON-LD schemas, dark theme
+│   ├── sitemap.ts             ← XML sitemap (Next.js MetadataRoute)
+│   ├── robots.ts              ← robots.txt (Next.js MetadataRoute)
+│   ├── manifest.ts            ← Web app manifest (PWA metadata)
+│   ├── opengraph-image.tsx    ← Auto-generated OG image via next/og ImageResponse
+│   └── page.tsx               ← Single page composition (15 sections)
 ├── components/
 │   ├── animated-grid.tsx    ← Fixed background: drifting grid + corner glows
 │   ├── about.tsx            ← #about: bio, metric cards, tech stack

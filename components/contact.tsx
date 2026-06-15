@@ -15,7 +15,7 @@ const CONTACT_OPTIONS = [
     icon: MessageCircle,
     label: "Message on WhatsApp",
     value: "+92 320 194 2001",
-    href: "https://wa.me/923201942001",
+    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F",
     accent: "aquamarine",
   },
   {
