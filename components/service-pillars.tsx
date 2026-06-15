@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code2, Bot, BarChart2, Search, Globe, FileCode, Palette, Cloud } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const SERVICES = [
   {
@@ -86,14 +87,26 @@ const SERVICES = [
   },
 ];
 
+// Asymmetric bento spans per card index (lg = 6-col grid). Sums to 6 per row.
+const SPANS = [
+  "md:col-span-2 lg:col-span-4", // 01 Full-Stack — flagship, wide
+  "lg:col-span-2",               // 02 AI
+  "lg:col-span-3",               // 03 Paid Ads
+  "lg:col-span-3",               // 04 SEO
+  "lg:col-span-2",               // 05 Web3
+  "md:col-span-2 lg:col-span-4", // 06 WordPress — wide
+  "lg:col-span-3",               // 07 Graphic
+  "lg:col-span-3",               // 08 Deployment
+];
+
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export default function ServicePillars() {
@@ -101,86 +114,81 @@ export default function ServicePillars() {
     <section id="services" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-[1100px]">
+      {/* Blueprint grid */}
+      <div className="blueprint-grid pointer-events-none absolute inset-0" />
+
+      <div className="relative mx-auto max-w-[1100px]">
+        {/* Ghost watermark — positioned behind the bento cards, not the header */}
+        <span aria-hidden className="ghost-text top-36 left-0 text-[88px] md:text-[150px]">
+          SERVICES
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="relative mb-16 max-w-2xl"
         >
-          <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> What We Build For You
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+          <p className="coord-label mb-4">§ 02 / WHAT WE BUILD FOR YOU</p>
+          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             One Team.{" "}
             <span className="text-gradient-accent">Every Skill You Need to Compete Online.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
             From your first landing page to a full AI-powered sales machine — we handle every layer.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Bento Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-4 lg:grid-cols-2"
+          className="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-6"
         >
-          {SERVICES.map((service) => {
+          {SERVICES.map((service, i) => {
             const Icon = service.icon;
-            const isCyan = service.accent === "aquamarine";
+            const featured = i === 0;
             return (
               <motion.div
                 key={service.number}
                 variants={cardVariants}
-                className="glass-panel glow-border group flex flex-col gap-6 rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.005] md:flex-row md:items-start"
+                className={cn(
+                  "bracket-frame scan-hover group relative flex flex-col border border-subtle/50 bg-surface/40 p-6 transition-colors duration-300 hover:border-crimson/35",
+                  SPANS[i],
+                  featured && "lg:p-8"
+                )}
               >
-                {/* Number + Icon */}
-                <div className="flex items-center gap-4">
-                  <span
-                    className={`font-mono text-3xl font-bold ${
-                      isCyan ? "text-aquamarine/30" : "text-matrix-green/30"
-                    }`}
-                  >
-                    {service.number}
-                  </span>
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors duration-300 ${
-                      isCyan
-                        ? "border-aquamarine/20 bg-aquamarine/10 group-hover:border-aquamarine/40"
-                        : "border-matrix-green/20 bg-matrix-green/10 group-hover:border-matrix-green/40"
-                    }`}
-                  >
-                    <Icon
-                      className={`h-5 w-5 ${
-                        isCyan ? "text-aquamarine" : "text-matrix-green"
-                      }`}
-                    />
-                  </div>
+                {/* Big ghost number */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute right-4 top-3 select-none font-mono text-4xl font-bold text-white/[0.04] transition-colors duration-300 group-hover:text-crimson/10"
+                >
+                  {service.number}
+                </span>
+
+                {/* Icon */}
+                <div className="relative mb-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-crimson/20 bg-crimson/10 transition-colors duration-300 group-hover:border-crimson/40">
+                  <Icon className="h-5 w-5 text-crimson" />
                 </div>
 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="mb-1 text-xl font-bold text-white">{service.title}</h3>
-                  <p className={`mb-2 text-sm font-semibold ${isCyan ? "text-aquamarine/80" : "text-matrix-green/80"}`}>
-                    {service.hook}
-                  </p>
-                  <p className="mb-4 text-sm leading-relaxed text-text-muted">
+                <div className="relative flex flex-1 flex-col">
+                  <h3 className={cn("mb-1.5 font-bold text-white", featured ? "text-2xl" : "text-lg")}>
+                    {service.title}
+                  </h3>
+                  <p className="mb-2 text-sm font-semibold text-crimson/80">{service.hook}</p>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-text-muted">
                     {service.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`rounded-md border px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide ${
-                          isCyan
-                            ? "border-aquamarine/15 bg-aquamarine/5 text-aquamarine/80"
-                            : "border-matrix-green/15 bg-matrix-green/5 text-matrix-green/80"
-                        }`}
+                        className="rounded-md border border-crimson/15 bg-crimson/5 px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide text-crimson/80"
                       >
                         {tag}
                       </span>

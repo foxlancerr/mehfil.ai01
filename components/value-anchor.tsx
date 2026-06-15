@@ -5,25 +5,25 @@ import { Target, Layers, TrendingUp } from "lucide-react";
 
 const VALUES = [
   {
+    index: "01",
     icon: Target,
     title: "Strategy Before Design",
     description:
       "Every project starts with one question: what is this supposed to accomplish? Then we engineer the answer. Design without strategy is just decoration.",
-    accent: "matrix-green",
   },
   {
+    index: "02",
     icon: Layers,
     title: "Every Layer, One Team",
     description:
       "Web development, AI automation, SEO, digital marketing, Web3 — all under one roof. No coordination overhead. No misaligned freelancers. One point of contact.",
-    accent: "aquamarine",
   },
   {
+    index: "03",
     icon: TrendingUp,
     title: "Built to Convert",
     description:
       "We don't build websites — we build growth machines. Every element is engineered to capture attention, build trust, and move visitors toward action.",
-    accent: "matrix-green",
   },
 ];
 
@@ -42,19 +42,25 @@ const cardVariants = {
 export default function ValueAnchor() {
   return (
     <section className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
-      <div className="mx-auto max-w-[1100px]">
+      {/* Blueprint dot grid */}
+      <div className="dot-grid-fade pointer-events-none absolute inset-0 opacity-50" />
+
+      <div className="relative mx-auto max-w-[1100px]">
+        {/* Ghost watermark */}
+        <span aria-hidden className="ghost-text top-36 right-0 text-[90px] md:text-[150px]">
+          WHY US
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 max-w-2xl"
+          className="relative mb-16 max-w-2xl"
         >
-          <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> The Problem We Solve
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+          <p className="coord-label mb-4">§ 01 / THE PROBLEM WE SOLVE</p>
+          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Most Agencies Give You a Website.{" "}
             <span className="text-gradient-accent">We Give You a Growth Machine.</span>
           </h2>
@@ -71,32 +77,29 @@ export default function ValueAnchor() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-5 md:grid-cols-3"
+          className="relative grid gap-5 md:grid-cols-3"
         >
           {VALUES.map((item) => {
             const Icon = item.icon;
-            const isCyan = item.accent === "aquamarine";
             return (
               <motion.div
                 key={item.title}
                 variants={cardVariants}
-                className="glass-panel glow-border group rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.015]"
+                className="bracket-frame scan-hover group relative border border-subtle/50 bg-surface/40 p-7 transition-colors duration-300 hover:border-crimson/30"
               >
-                <div
-                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl border transition-colors duration-300 ${
-                    isCyan
-                      ? "border-aquamarine/20 bg-aquamarine/10 group-hover:border-aquamarine/40 group-hover:bg-aquamarine/15"
-                      : "border-matrix-green/20 bg-matrix-green/10 group-hover:border-matrix-green/40 group-hover:bg-matrix-green/15"
-                  }`}
+                {/* Oversized index number bleeding off the top */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute right-4 top-2 select-none font-mono text-5xl font-bold text-white/[0.04] transition-colors duration-300 group-hover:text-crimson/10"
                 >
-                  <Icon
-                    className={`h-5 w-5 ${
-                      isCyan ? "text-aquamarine" : "text-matrix-green"
-                    }`}
-                  />
+                  {item.index}
+                </span>
+
+                <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-crimson/20 bg-crimson/10 transition-colors duration-300 group-hover:border-crimson/40 group-hover:bg-crimson/15">
+                  <Icon className="h-5 w-5 text-crimson" />
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-white">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-text-muted">
+                <h3 className="relative mb-3 text-lg font-bold text-white">{item.title}</h3>
+                <p className="relative text-sm leading-relaxed text-text-muted">
                   {item.description}
                 </p>
               </motion.div>

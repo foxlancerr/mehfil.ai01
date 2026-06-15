@@ -64,12 +64,17 @@ const TIERS = [
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.05 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 64, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 export default function Pricing() {
@@ -79,14 +84,22 @@ export default function Pricing() {
 
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matrix-green/[0.03] blur-[120px] pointer-events-none" />
 
+      {/* Blueprint grid */}
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-50" />
+
       <div className="mx-auto max-w-[1100px] relative">
+        {/* Ghost watermark */}
+        <span aria-hidden className="ghost-text top-36 left-1/2 -translate-x-1/2 text-[80px] md:text-[140px]">
+          PRICING
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="relative mb-16 text-center"
         >
           <span className="section-label mb-4 inline-flex">
             <span className="mr-1.5">{'//'}</span> Transparent Pricing
@@ -118,8 +131,8 @@ export default function Pricing() {
                 variants={cardVariants}
                 className={`relative rounded-2xl transition-transform duration-300 hover:scale-[1.015] ${
                   tier.popular
-                    ? "glass-panel-strong border border-matrix-green/30 lg:-mt-4 lg:mb-[-16px]"
-                    : "glass-panel glow-border"
+                    ? "bracket-frame glass-panel-strong border border-matrix-green/30 lg:-mt-4 lg:mb-[-16px] rounded-none"
+                    : "glass-panel rounded-none glow-border"
                 }`}
               >
                 {/* Popular Badge */}

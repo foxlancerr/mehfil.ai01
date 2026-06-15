@@ -37,14 +37,22 @@ export default function FAQ() {
     <section id="faq" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-3xl">
+      {/* Blueprint grid */}
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-50" />
+
+      <div className="relative mx-auto max-w-3xl">
+        {/* Ghost watermark */}
+        <span aria-hidden className="ghost-text top-32 left-1/2 -translate-x-1/2 text-[90px] md:text-[150px]">
+          FAQ
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="relative mb-14 text-center"
         >
           <span className="section-label mb-4 inline-flex">
             <span className="mr-1.5">{'//'}</span> Common Questions
@@ -70,7 +78,10 @@ export default function FAQ() {
                 className="glass-panel group rounded-xl overflow-hidden transition-colors duration-300 data-[state=open]:border-matrix-green/20"
               >
                 <Accordion.Trigger className="accordion-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-all duration-200 hover:bg-surface/30">
-                  <span className="text-sm font-semibold text-white leading-relaxed">
+                  <span className="flex items-baseline gap-3 text-sm font-semibold text-white leading-relaxed">
+                    <span className="shrink-0 font-mono text-xs text-crimson/50">
+                      Q.{String(index + 1).padStart(2, "0")}
+                    </span>
                     {faq.question}
                   </span>
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-subtle bg-surface/50 transition-colors duration-300 group-data-[state=open]:border-matrix-green/30 group-data-[state=open]:bg-matrix-green/10">

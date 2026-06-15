@@ -82,6 +82,16 @@
 
 ### Section Labels
 - `.section-label` — mono pill badge, `text-text-neon`, `bg-surface/50`, `border-subtle`
+- `.coord-label` — mono coordinate/registration marker, `text-crimson/50`, `tracking-[0.3em]` (e.g. `§ 02 / SERVICES`)
+
+### Engineered "Framed" Aesthetic (design-audit additions)
+- `.bracket-frame` — L-shaped crimson corner brackets (top-left + bottom-right) on a `relative` element; brighten on `:hover`
+- `.bracket-corners-tr` — adds the opposite two corners (top-right + bottom-left); reacts to parent `.group:hover`
+- `.blueprint-grid` — crimson 48px line grid, radial-masked to fade at edges (per-section background texture)
+- `.dot-grid-fade` — 28px dot grid, radial-masked to fade at edges
+- `.ghost-text` — oversized outlined watermark text behind headers (`-webkit-text-stroke`, `z-0`)
+- `.scan-hover` — crimson scan-line sweep on `:hover` (replaces generic card scale); uses `scan-sweep` keyframe
+- `.animate-grain` — film-grain jitter (`grain-shift` keyframe, `steps(4)`); applied to the global noise overlay
 
 ### Browser Mockups
 - `.browser-frame` — dark container with rounded corners

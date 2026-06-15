@@ -36,15 +36,19 @@ export default function About() {
     <section id="about" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-[1100px]">
+      {/* Blueprint grid */}
+      <div className="dot-grid-fade pointer-events-none absolute inset-0 opacity-50" />
+
+      <div className="relative mx-auto max-w-[1100px]">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
 
-          {/* ── Left — Bio ── */}
+          {/* ── Left — Bio (sticky) ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:sticky lg:top-28 lg:self-start"
           >
             <span className="section-label mb-6 inline-flex">
               <span className="mr-1.5">{"//"}</span> Who&apos;s Behind This
@@ -119,16 +123,16 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* ── Right — Cards ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            className="space-y-4"
-          >
+          {/* ── Right — Cards (scroll + reveal sequentially) ── */}
+          <div className="space-y-4">
             {/* Metric cards */}
-            <div className="grid grid-cols-2 gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="grid grid-cols-2 gap-3"
+            >
               {METRIC_CARDS.map((m) => (
                 <div key={m.label} className="glass-panel rounded-xl p-4 text-center">
                   <p className="text-lg font-extrabold text-white tabular-nums leading-tight">{m.value}</p>
@@ -137,10 +141,16 @@ export default function About() {
                   </p>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Status card */}
-            <div className="glass-panel rounded-2xl p-6">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+              className="bracket-frame glass-panel relative rounded-2xl p-6 rounded-tr-none rounded-bl-none"
+            >
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-matrix-green/20 bg-matrix-green/10">
                   <Terminal className="h-5 w-5 text-matrix-green" />
@@ -173,10 +183,16 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Tech stack */}
-            <div className="glass-panel rounded-2xl p-5">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.16 }}
+              className="glass-panel rounded-2xl p-5"
+            >
               <div className="mb-3 flex items-center gap-2">
                 <Cpu className="h-4 w-4 text-matrix-green/60" />
                 <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
@@ -193,8 +209,8 @@ export default function About() {
                   </span>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

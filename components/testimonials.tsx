@@ -296,14 +296,26 @@ export default function Testimonials() {
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/4 blur-3xl" />
 
-      <div className="mx-auto max-w-[1100px]">
+      {/* Blueprint grid */}
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-60" />
+
+      <div className="relative mx-auto max-w-[1100px]">
+        {/* Giant ghost quote glyph */}
+        <span
+          aria-hidden
+          className="ghost-text left-1/2 top-0 -translate-x-1/2 text-[180px] md:text-[280px]"
+          style={{ lineHeight: 0.6 }}
+        >
+          &ldquo;
+        </span>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="relative mb-14 text-center"
         >
           <span className="section-label mb-4 inline-flex">
             <span className="mr-1.5">{"//"}</span> What Clients Say

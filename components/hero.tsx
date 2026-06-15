@@ -1,20 +1,62 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight, Star } from "lucide-react";
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // Cinematic exit: content recedes (lift + dim + scale) as the hero leaves.
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 140]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, reduceMotion ? 1 : 0]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.92]);
+
+  // Aura parallax — drifts slower than the content for depth.
+  const auraY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 220]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 90]);
+
   return (
     <section
+      ref={ref}
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 lg:px-12 pt-16"
     >
       {/* Hero Aura */}
-      <div className="absolute inset-0 bg-hero-aura-lg" />
-      <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-hero-aura opacity-80" />
+      <motion.div style={{ y: auraY }} className="absolute inset-0">
+        <div className="absolute inset-0 bg-hero-aura-lg" />
+        <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-hero-aura opacity-80" />
+      </motion.div>
+
+      {/* Blueprint grid */}
+      <motion.div
+        style={{ y: gridY }}
+        className="blueprint-grid pointer-events-none absolute inset-0 opacity-70"
+      />
+
+      {/* Engineered corner frame + registration coordinates */}
+      <div className="pointer-events-none absolute inset-5 hidden lg:block" aria-hidden>
+        <span className="absolute left-0 top-0 h-5 w-5 border-l border-t border-crimson/40" />
+        <span className="absolute right-0 top-0 h-5 w-5 border-r border-t border-crimson/40" />
+        <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-crimson/40" />
+        <span className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-crimson/40" />
+        <span className="coord-label absolute left-7 top-1.5">[ 01 / MEHFIL.DEV ]</span>
+        <span className="coord-label absolute right-7 top-1.5">31.5°N 74.3°E</span>
+        <span className="coord-label absolute bottom-1.5 left-7">// AGENCY_OS v2.0</span>
+        <span className="coord-label absolute bottom-1.5 right-7">EST. 2023 · PK</span>
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl w-full text-center">
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity, scale: contentScale, willChange: "transform, opacity" }}
+        className="relative z-10 mx-auto max-w-5xl w-full text-center"
+      >
         {/* Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -117,7 +159,7 @@ export default function Hero() {
             Clients in US, UK, Germany &amp; beyond
           </span>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
