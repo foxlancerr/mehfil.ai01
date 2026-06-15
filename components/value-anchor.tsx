@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Database, DollarSign } from "lucide-react";
+import { Target, Layers, TrendingUp } from "lucide-react";
 
 const VALUES = [
   {
-    icon: Shield,
-    title: "Zero AI Token Bleed",
+    icon: Target,
+    title: "Strategy Before Design",
     description:
-      "AI builders don't have long-term architectural foresight. They generate massive technical debt, duplicate code, and hidden API leaks. We clean up the chaos and protect your infrastructure.",
+      "Every project starts with one question: what is this supposed to accomplish? Then we engineer the answer. Design without strategy is just decoration.",
     accent: "matrix-green",
   },
   {
-    icon: Database,
-    title: "Enterprise Plumbing",
+    icon: Layers,
+    title: "Every Layer, One Team",
     description:
-      "We don't just build beautiful interfaces; we wire up heavy-duty database backends (PostgreSQL / Supabase), implement bulletproof authentication rails, and configure secure Stripe billing engines.",
+      "Web development, AI automation, SEO, digital marketing, Web3 — all under one roof. No coordination overhead. No misaligned freelancers. One point of contact.",
     accent: "aquamarine",
   },
   {
-    icon: DollarSign,
-    title: "Vercel Cost Optimization ($0/mo)",
+    icon: TrendingUp,
+    title: "Built to Convert",
     description:
-      "Messy AI queries can trigger unexpected cloud hosting bills. We fine-tune serverless function execution states so your live SaaS operates comfortably inside free tiers wherever possible.",
+      "We don't build websites — we build growth machines. Every element is engineered to capture attention, build trust, and move visitors toward action.",
     accent: "matrix-green",
   },
 ];
@@ -52,16 +52,16 @@ export default function ValueAnchor() {
           className="mb-16 max-w-2xl"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Why Partner With Us
+            <span className="mr-1.5">{'//'}</span> The Problem We Solve
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Most freelancers sell &ldquo;clean code.&rdquo;{" "}
-            <span className="text-gradient-accent">We sell risk mitigation.</span>
+            Most Agencies Give You a Website.{" "}
+            <span className="text-gradient-accent">We Give You a Growth Machine.</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-text-muted">
-            We don&apos;t just write code. We eliminate the hidden costs, silent
-            failures, and architectural landmines that AI-generated prototypes
-            leave behind.
+            You&apos;ve probably hired someone who delivered a beautiful design — and then nothing
+            happened. No traffic. No leads. No revenue. That&apos;s because design without strategy
+            is just decoration. At Mehfil.ai, we engineer the answer.
           </p>
         </motion.div>
 

@@ -8,20 +8,22 @@ agency/
 │   ├── favicon.ico
 │   ├── globals.css          ← Tailwind v4 entry: @import "tailwindcss" + @config
 │   ├── layout.tsx           ← Root layout, SEO metadata, dark theme class
-│   └── page.tsx             ← Single page composition (all 12 sections)
+│   └── page.tsx             ← Single page composition (15 sections)
 ├── components/
 │   ├── animated-grid.tsx    ← Fixed background: drifting grid + corner glows
-│   ├── case-studies.tsx     ← #case-studies: 2 cards with counter animations
+│   ├── about.tsx            ← #about: bio, metric cards, tech stack
+│   ├── case-studies.tsx     ← #case-studies: 5 real projects with live links
+│   ├── contact.tsx          ← #contact: CTA section with 4 contact options + urgency line
 │   ├── cursor-glow.tsx      ← Mouse-following radial glow (desktop only)
-│   ├── deployments.tsx      ← #deployments: 2 browser mockup cards with 3D tilt
 │   ├── faq.tsx              ← #faq: Radix Accordion with 5 questions
-│   ├── footer.tsx           ← 4-column footer
-│   ├── hero.tsx             ← Full-viewport hero: badge, headline, CTAs, tags
+│   ├── footer.tsx           ← 4-column footer (Mehfil.ai branding)
+│   ├── hero.tsx             ← Full-viewport hero: badge, headline, dual CTAs, trust bar
 │   ├── navbar.tsx           ← Fixed navbar: logo, anchors, mobile menu (Zustand)
-│   ├── pricing.tsx          ← #pricing: 3 tiers linking to Fiverr
-│   ├── service-pillars.tsx  ← #services: 3 numbered pillars
+│   ├── pricing.tsx          ← #pricing: 3 tiers (Starter/Growth/Scale) with PKR+USD prices
+│   ├── service-pillars.tsx  ← #services: 8 numbered service cards
+│   ├── stats-bar.tsx        ← Credibility stats strip (10+ projects, 5★, 4th/600, 5+ countries)
 │   ├── testimonials.tsx     ← #testimonials: 3 client quotes
-│   └── value-anchor.tsx     ← 3 value prop cards (no anchor ID)
+│   └── value-anchor.tsx     ← 3 value prop cards: strategy, one-team, conversion
 ├── lib/
 │   └── utils.ts             ← cn() = clsx + tailwind-merge
 ├── memory/                  ← Cursor AI context files (this folder)

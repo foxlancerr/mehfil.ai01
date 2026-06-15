@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "#services", label: "// Services" },
   { href: "#case-studies", label: "// Work" },
-  { href: "#deployments", label: "// Deployments" },
+  { href: "#about", label: "// About" },
   { href: "#testimonials", label: "// Reviews" },
   { href: "#pricing", label: "// Pricing" },
-  { href: "#faq", label: "// FAQ" },
+  { href: "#contact", label: "// Contact" },
 ];
 
 export default function Navbar() {
@@ -70,7 +70,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="btn-primary hidden text-xs lg:inline-flex"
             >
-              Hire Engineer
+              Get a Free Audit
             </a>
             <button
               onClick={toggleMobileMenu}
@@ -110,7 +110,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="btn-primary mt-3 text-sm justify-center"
               >
-                Hire Engineer
+                Get a Free Audit
               </a>
             </div>
           </motion.div>

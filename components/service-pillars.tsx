@@ -1,41 +1,94 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Layers, Globe } from "lucide-react";
+import { Code2, Bot, BarChart2, Search, Globe, FileCode, Palette, Cloud } from "lucide-react";
 
-const PILLARS = [
+const SERVICES = [
   {
     number: "01",
     icon: Code2,
-    title: "AI Prototype Hardening & Refactoring",
+    title: "Full-Stack Web Development",
+    hook: "Pixel-perfect. Lightning-fast. Built to last.",
     description:
-      "Tracing and clearing Next.js hydration errors, compilation failures, layout shifts, and script-sync loops. We take your AI-generated mess and turn it into stable, production-quality code.",
-    tags: ["Next.js Hydration", "Build Fixes", "Layout Shifts", "Error Tracing"],
+      "Custom websites and web apps built with Next.js, React, and TypeScript. We don't use templates — every line of code is written for your business. 95+ Lighthouse scores. Mobile-first. SEO-ready on day one.",
+    tags: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     accent: "matrix-green",
   },
   {
     number: "02",
-    icon: Layers,
-    title: "Full-Stack SaaS Infrastructure",
+    icon: Bot,
+    title: "AI Automation & Chatbot Integration",
+    hook: "Stop doing manually what a machine can do 24/7.",
     description:
-      "Porting frontend layouts to clean Next.js App Router & Tailwind CSS architecture with highly responsive global memory states (Zustand), database integration, and secure auth rails.",
-    tags: ["App Router", "Zustand", "Tailwind CSS", "Supabase"],
+      "We build custom AI workflows, chatbots, and automation pipelines that handle lead capture, customer support, content generation, and repetitive tasks — so you focus on growing, not grinding.",
+    tags: ["OpenAI", "Claude API", "n8n", "LangChain", "RAG Pipelines", "WhatsApp Bots"],
     accent: "aquamarine",
   },
   {
     number: "03",
-    icon: Globe,
-    title: "Web3 & Decentralized Engineering",
+    icon: BarChart2,
+    title: "Paid Ads & Digital Marketing",
+    hook: "Every rupee you spend should bring two back.",
     description:
-      "Refactoring fragile dApp codebases, deploying decentralized launchpads, and implementing type-safe smart contract and wallet connection triggers across multiple chains.",
-    tags: ["dApps", "Smart Contracts", "Wallet Connect", "Launchpads"],
+      "Data-driven Facebook, Instagram, and Google ad campaigns built around your audience, not guesswork. We handle strategy, creative, targeting, and optimization — while you watch the leads roll in.",
+    tags: ["Meta Ads", "Google Ads", "Campaign Strategy", "A/B Testing", "Analytics"],
     accent: "matrix-green",
+  },
+  {
+    number: "04",
+    icon: Search,
+    title: "SEO & Organic Growth",
+    hook: "Rank higher. Get found. Own your niche.",
+    description:
+      "From on-page technical SEO to keyword strategy and content pipelines — we build the kind of digital presence that keeps bringing traffic long after you stop paying for ads.",
+    tags: ["Technical SEO", "Keyword Research", "On-Page Optimization", "Content Strategy", "Local SEO"],
+    accent: "aquamarine",
+  },
+  {
+    number: "05",
+    icon: Globe,
+    title: "Web3 & Blockchain Development",
+    hook: "Your decentralized idea deserves production-grade execution.",
+    description:
+      "We build dApps, NFT platforms, IDO launchpads, and smart contract integrations across ETH, BNB, Polygon, Solana, and Avalanche. Wallet connections, token staking, cross-chain bridges — done right.",
+    tags: ["Solidity", "Ethers.js", "MetaMask", "WalletConnect", "ERC-721/1155", "Cross-Chain"],
+    accent: "matrix-green",
+  },
+  {
+    number: "06",
+    icon: FileCode,
+    title: "WordPress Design & Development",
+    hook: "Fast, secure WordPress sites that you can actually manage.",
+    description:
+      "Custom WordPress builds, WooCommerce stores, membership platforms, and booking systems. We build clean, optimized sites — not bloated theme nightmares.",
+    tags: ["WordPress", "WooCommerce", "Custom Themes", "Elementor", "Speed Optimization"],
+    accent: "aquamarine",
+  },
+  {
+    number: "07",
+    icon: Palette,
+    title: "Graphic Design & Brand Identity",
+    hook: "First impressions close deals before you say a word.",
+    description:
+      "Logos, brand kits, social media creatives, ad banners, and pitch decks that look like they came from a global agency. Because your brand should match the quality of your product.",
+    tags: ["Logo Design", "Brand Identity", "Social Creatives", "Ad Banners", "Pitch Decks"],
+    accent: "matrix-green",
+  },
+  {
+    number: "08",
+    icon: Cloud,
+    title: "Deployment, DevOps & Hosting",
+    hook: "Your code should be live, fast, and never go down.",
+    description:
+      "We handle CI/CD pipelines, Vercel/Cloudflare deployments, Docker, and server configuration so your product ships reliably and scales without panic.",
+    tags: ["Vercel", "Cloudflare", "GitHub Actions", "Docker", "CI/CD", "Railway", "AWS S3"],
+    accent: "aquamarine",
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariants = {
@@ -46,7 +99,6 @@ const cardVariants = {
 export default function ServicePillars() {
   return (
     <section id="services" className="relative px-6 lg:px-8 py-24 lg:py-32">
-      {/* Subtle divider line */}
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl">
@@ -59,33 +111,33 @@ export default function ServicePillars() {
           className="mb-16 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Specialized Service Pillars
+            <span className="mr-1.5">{'//'}</span> What We Build For You
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Clear, modular engineering{" "}
-            <span className="text-gradient-accent">at every layer</span>
+            One Team.{" "}
+            <span className="text-gradient-accent">Every Skill You Need to Compete Online.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
-            We dominate the most technical layers of the modern web stack.
+            From your first landing page to a full AI-powered sales machine — we handle every layer.
           </p>
         </motion.div>
 
-        {/* Pillars */}
+        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="space-y-5"
+          className="space-y-4"
         >
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon;
-            const isCyan = pillar.accent === "aquamarine";
+          {SERVICES.map((service) => {
+            const Icon = service.icon;
+            const isCyan = service.accent === "aquamarine";
             return (
               <motion.div
-                key={pillar.number}
+                key={service.number}
                 variants={cardVariants}
-                className="glass-panel glow-border group flex flex-col gap-6 rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.008] md:flex-row md:items-start"
+                className="glass-panel glow-border group flex flex-col gap-6 rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.005] md:flex-row md:items-start"
               >
                 {/* Number + Icon */}
                 <div className="flex items-center gap-4 md:min-w-[180px]">
@@ -94,7 +146,7 @@ export default function ServicePillars() {
                       isCyan ? "text-aquamarine/30" : "text-matrix-green/30"
                     }`}
                   >
-                    {pillar.number}
+                    {service.number}
                   </span>
                   <div
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors duration-300 ${
@@ -113,14 +165,15 @@ export default function ServicePillars() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="mb-2 text-xl font-bold text-white">
-                    {pillar.title}
-                  </h3>
+                  <h3 className="mb-1 text-xl font-bold text-white">{service.title}</h3>
+                  <p className={`mb-2 text-sm font-semibold ${isCyan ? "text-aquamarine/80" : "text-matrix-green/80"}`}>
+                    {service.hook}
+                  </p>
                   <p className="mb-4 text-sm leading-relaxed text-text-muted">
-                    {pillar.description}
+                    {service.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {pillar.tags.map((tag) => (
+                    {service.tags.map((tag) => (
                       <span
                         key={tag}
                         className={`rounded-md border px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide ${

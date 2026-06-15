@@ -6,7 +6,7 @@ import { Quote } from "lucide-react";
 const TESTIMONIALS = [
   {
     quote:
-      "Absolutely rescued my launch. My Bolt.new prototype was throwing endless hydration errors on deployment, and the AI kept making it worse. He jumped in, refactored the entire system into clean Next.js, and had it live on Vercel in no time. Absolute lifesaver!",
+      "Absolutely rescued my launch. My prototype was throwing endless errors on deployment. He refactored the entire system into clean Next.js and had it live on Vercel in no time. Absolute lifesaver.",
     author: "SaaS Founder",
     location: "United States",
     rating: 5,
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Outstanding attention to detail. Delivered a complete SaaS migration from a fragile AI prototype into a clean, maintainable codebase. The Zustand state management and Supabase integration were flawless.",
+      "Outstanding attention to detail. Complete SaaS migration from a fragile AI prototype into a clean, maintainable codebase. The state management and database integration were flawless.",
     author: "CTO",
     location: "United Kingdom",
     rating: 5,
@@ -52,11 +52,11 @@ export default function Testimonials() {
           className="mb-16 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Verified Client Testimonials
+            <span className="mr-1.5">{'//'}</span> What Clients Say
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Real feedback from{" "}
-            <span className="text-gradient-accent">verified buyers</span>
+            Real Feedback.{" "}
+            <span className="text-gradient-accent">Zero Filtering.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
             Pulled straight from verified 5-star reviews on Fiverr.

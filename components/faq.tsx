@@ -6,29 +6,29 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    question: "Can you preserve my existing design layer while fixing the underlying code?",
+    question: "Do you work with international clients?",
     answer:
-      "Yes. We keep your exact layout, visual branding, and styling completely intact while swapping out the messy, buggy AI script underneath for type-safe, production-grade architecture. Your users won't notice a visual difference — they'll just notice everything works.",
+      "Yes. We've delivered projects for clients in the US, UK, Germany, and across the Gulf. Time zones are not a problem — we work async and keep you updated at every milestone.",
   },
   {
-    question: "How do you handle project handovers?",
+    question: "I have an existing website. Can you improve it instead of rebuilding?",
     answer:
-      "You receive full repository ownership via GitHub. We handle the entire deployment process to your own Vercel and Supabase accounts, ensuring everything is fully optimized and running smoothly before sign-off. You get complete documentation of all architectural decisions made.",
+      "Absolutely. We offer audits, speed optimization, redesigns, and feature additions. Send us your URL and we'll tell you exactly what's holding it back.",
   },
   {
-    question: "Can I consult with you before initiating an official order?",
+    question: "How long does a typical project take?",
     answer:
-      "Absolutely. In fact, we encourage it. Click any checkout button to land on our secure Fiverr profile where you can send over your current project link for a preliminary assessment. We'll review your codebase and give you a clear breakdown of what needs fixing before you commit.",
+      "Landing pages: 3–5 days. Full websites: 7–14 days. SaaS or Web3 apps: 3–6 weeks. AI automation systems: 1–3 weeks depending on complexity.",
   },
   {
-    question: "What technologies and frameworks do you specialize in?",
+    question: "Do you offer ongoing maintenance and support?",
     answer:
-      "Our core stack is Next.js (App Router), TypeScript, Tailwind CSS, Zustand for state management, Supabase/PostgreSQL for databases, and ethers.js/wagmi for Web3 integrations. We also work extensively with Stripe, Clerk/Auth.js for authentication, and various cloud storage providers.",
+      "Yes. We offer monthly retainer packages that cover updates, performance monitoring, ad optimization, and priority support.",
   },
   {
-    question: "How fast can you turn around an emergency fix?",
+    question: "Can you handle both the website and the marketing?",
     answer:
-      "For our 24-Hour Panic Offer, we begin diagnostics immediately upon order confirmation. Most critical deployment failures, hydration errors, and build breaks are isolated within 4-8 hours. Full fixes for moderate-complexity issues typically complete within 24-48 hours.",
+      "That's exactly what we're designed for. Most agencies do one or the other. We build the asset and then drive traffic to it.",
   },
 ];
 
@@ -47,11 +47,11 @@ export default function FAQ() {
           className="mb-14 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Engineering FAQs
+            <span className="mr-1.5">{'//'}</span> Common Questions
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Every question answered,{" "}
-            <span className="text-gradient-accent">zero hesitation</span>
+            Questions We Hear{" "}
+            <span className="text-gradient-accent">Every Day</span>
           </h2>
         </motion.div>
 

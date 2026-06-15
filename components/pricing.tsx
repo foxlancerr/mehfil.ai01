@@ -5,59 +5,58 @@ import { Check, ArrowRight, Zap, Rocket, Crown } from "lucide-react";
 
 const TIERS = [
   {
-    name: "AI Code Baseline Audit",
-    tier: "Basic",
+    name: "Starter",
+    tier: "Starter",
     icon: Zap,
-    deliverable:
-      "Isolation and rapid troubleshooting of live compilation loops, hydration failures, layout shifts, and exposed API keys.",
+    bestFor: "Landing pages, small sites, single features",
+    price: "From ₨25,000",
+    priceUSD: "/ $90",
+    deliverable: "Single-page website or landing page — mobile-responsive, SEO-ready, and deployed live.",
     features: [
-      "Full error trace & diagnostic report",
-      "Hydration error resolution",
-      "Build failure isolation",
-      "API key exposure audit",
-      "Performance bottleneck mapping",
-      "Written remediation roadmap",
+      "Single-page website or landing page",
+      "Mobile-responsive, SEO-ready",
+      "Deployed and live",
+      "3-day delivery",
     ],
-    cta: "Book Code Audit",
+    cta: "Start My Project →",
     accent: "matrix-green",
     popular: false,
   },
   {
-    name: "Core App Migration",
-    tier: "Standard",
+    name: "Growth",
+    tier: "Growth",
     icon: Rocket,
-    deliverable:
-      "Full structural migration of up to 5 prototype pages into an organized, type-safe Next.js App Router and responsive Tailwind CSS codebase.",
+    bestFor: "Full websites, SaaS MVPs, ad campaigns",
+    price: "From ₨75,000",
+    priceUSD: "/ $270",
+    deliverable: "Multi-page website or web app with backend, digital marketing setup, and SEO foundation.",
     features: [
-      "Everything in Basic, plus:",
-      "Up to 5 pages migrated to App Router",
-      "Full TypeScript type safety",
-      "Tailwind CSS responsive refactor",
-      "Zustand state management setup",
-      "Component architecture optimization",
-      "Vercel deployment configuration",
+      "Multi-page website or web app",
+      "Backend integration (database, auth, payments)",
+      "Digital marketing setup (Meta/Google Ads)",
+      "SEO foundation + analytics",
+      "7–14 day delivery",
     ],
-    cta: "Initialize Application Migration",
+    cta: "Let's Talk Growth →",
     accent: "aquamarine",
     popular: true,
   },
   {
-    name: "Full-Stack SaaS Structural Shift",
-    tier: "Premium",
+    name: "Scale",
+    tier: "Scale",
     icon: Crown,
-    deliverable:
-      "Complete transformation of an AI script into a market-ready SaaS: Next.js frontend, database systems (Supabase/PostgreSQL), secure user authentication, and Stripe payment gateways.",
+    bestFor: "Full-stack SaaS, Web3 apps, AI automation systems",
+    price: "Custom Quote",
+    priceUSD: "Book a Call",
+    deliverable: "Everything in Growth, plus AI workflows, Web3 integration, CI/CD pipelines, and ongoing support.",
     features: [
-      "Everything in Standard, plus:",
-      "Complete SaaS architecture build",
-      "Supabase/PostgreSQL database design",
-      "Secure auth system (Clerk/Auth.js)",
-      "Stripe payment integration",
-      "Role-based access control",
-      "Production optimization & monitoring",
-      "Full documentation & handover",
+      "Everything in Growth, plus:",
+      "AI chatbot or automation workflow",
+      "Web3 / blockchain integration",
+      "CI/CD pipelines + cloud deployment",
+      "Ongoing support & optimization",
     ],
-    cta: "Deploy Production SaaS",
+    cta: "Book My Free Call →",
     accent: "matrix-green",
     popular: false,
   },
@@ -78,7 +77,6 @@ export default function Pricing() {
     <section id="pricing" className="relative px-6 lg:px-8 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      {/* Background glow for popular tier */}
       <div className="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matrix-green/[0.03] blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl relative">
@@ -91,14 +89,14 @@ export default function Pricing() {
           className="mb-16 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Transparent Checkout Portals
+            <span className="mr-1.5">{'//'}</span> Transparent Pricing
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Three clear packages,{" "}
-            <span className="text-gradient-accent">zero friction</span>
+            No Hidden Fees. No Surprises.{" "}
+            <span className="text-gradient-accent">Just Results.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
-            Choose your tier. Every package routes directly to our secure Fiverr
+            Choose your tier and get started. Every package links directly to our secure Fiverr
             checkout for instant engagement.
           </p>
         </motion.div>
@@ -159,19 +157,25 @@ export default function Pricing() {
                       <span className="block font-mono text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
                         {tier.tier} Tier
                       </span>
-                      <h3 className="text-base font-bold text-white">
-                        {tier.name}
-                      </h3>
+                      <h3 className="text-base font-bold text-white">{tier.name}</h3>
                     </div>
                   </div>
 
-                  {/* Deliverable */}
-                  <p className="mb-6 text-sm leading-relaxed text-text-muted">
-                    {tier.deliverable}
+                  {/* Best For */}
+                  <p className="mb-3 font-mono text-[11px] text-text-muted/60">
+                    Best for: {tier.bestFor}
                   </p>
 
+                  {/* Price */}
+                  <div className="mb-5 flex items-baseline gap-2">
+                    <span className={`text-2xl font-extrabold ${isCyan ? "text-aquamarine" : "text-matrix-green"}`}>
+                      {tier.price}
+                    </span>
+                    <span className="font-mono text-xs text-text-muted/60">{tier.priceUSD}</span>
+                  </div>
+
                   {/* Divider */}
-                  <div className="mb-6 h-px bg-gradient-to-r from-transparent via-subtle/60 to-transparent" />
+                  <div className="mb-5 h-px bg-gradient-to-r from-transparent via-subtle/60 to-transparent" />
 
                   {/* Features */}
                   <ul className="mb-8 space-y-3">

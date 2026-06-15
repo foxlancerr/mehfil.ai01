@@ -1,18 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, Cpu, Globe } from "lucide-react";
+import {
+  Terminal, ArrowRight, Cpu, Globe,
+  Linkedin, Github, MessageCircle,
+} from "lucide-react";
+
+const SOCIAL_LINKS = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/foxlancerr" },
+  { icon: Github, label: "GitHub", href: "https://github.com/foxlancerr" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001" },
+];
 
 const TECH = [
   "Next.js", "TypeScript", "React", "n8n",
   "RAG Pipelines", "OpenAI", "Web3", "Ethers.js",
-  "Supabase", "PostgreSQL", "Vercel", "Tailwind CSS",
+  "PostgreSQL", "Vercel", "Tailwind CSS", "Docker",
 ];
 
 const STATS = [
-  { label: "Specialty", value: "AI Automation + Web Engineering" },
-  { label: "Stack", value: "Next.js · TypeScript · n8n · Web3" },
-  { label: "Focus", value: "Performance · Security · Scalability" },
+  { label: "Experience", value: "Funavry Technologies · AAK Tele-Science" },
+  { label: "Stack", value: "Next.js · TypeScript · n8n · Web3 · AI" },
+  { label: "Process", value: "Problem · Research · Solution · Outcome" },
+];
+
+const METRIC_CARDS = [
+  { value: "10+", label: "Live deployed projects" },
+  { value: "5 ★", label: "Verified Fiverr rating" },
 ];
 
 export default function About() {
@@ -21,7 +35,7 @@ export default function About() {
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
 
           {/* ── Left — Bio ── */}
           <motion.div
@@ -31,15 +45,13 @@ export default function About() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="section-label mb-6 inline-flex">
-              <span className="mr-1.5">{"//"}</span> About the Engineer
+              <span className="mr-1.5">{"//"}</span> Who&apos;s Behind This
             </span>
 
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Muhammad Asim
+              Built by an Engineer.{" "}
+              <span className="text-gradient-accent">Run Like an Agency.</span>
             </h2>
-            <p className="mt-1 text-lg font-semibold text-gradient-accent">
-              Software Engineer &amp; AI Automation Specialist
-            </p>
 
             <div className="mt-6 space-y-4 text-base leading-relaxed text-text-muted">
               <p>
@@ -67,7 +79,23 @@ export default function About() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            {/* Social links row */}
+            <div className="mt-7 flex flex-wrap gap-2">
+              {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-subtle/50 text-text-muted/50 transition-all duration-200 hover:border-crimson/40 hover:bg-crimson/8 hover:text-crimson"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="https://www.fiverr.com/foxlancerr"
                 target="_blank"
@@ -78,7 +106,7 @@ export default function About() {
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://www.linkedin.com/"
+                href="https://linkedin.com/in/foxlancerr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-glass text-sm"
@@ -97,6 +125,18 @@ export default function About() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="space-y-4"
           >
+            {/* Metric cards */}
+            <div className="grid grid-cols-2 gap-3">
+              {METRIC_CARDS.map((m) => (
+                <div key={m.label} className="glass-panel rounded-xl p-4 text-center">
+                  <p className="text-xl font-extrabold text-white tabular-nums">{m.value}</p>
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-text-muted/60">
+                    {m.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {/* Status card */}
             <div className="glass-panel rounded-2xl p-6">
               <div className="mb-5 flex items-center gap-3">
@@ -116,9 +156,7 @@ export default function About() {
                     <span className="absolute inline-flex h-full w-full animate-status-ping rounded-full bg-matrix-green opacity-75" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-matrix-green" />
                   </span>
-                  <span className="font-mono text-xs text-matrix-green">
-                    ACTIVE
-                  </span>
+                  <span className="font-mono text-xs text-matrix-green">ACTIVE</span>
                 </div>
               </div>
 
@@ -128,12 +166,8 @@ export default function About() {
                     key={s.label}
                     className="flex items-start justify-between gap-4 rounded-lg border border-subtle/40 bg-black/20 px-4 py-2.5"
                   >
-                    <span className="shrink-0 font-mono text-xs text-text-muted/60">
-                      {s.label}
-                    </span>
-                    <span className="text-right text-xs text-white">
-                      {s.value}
-                    </span>
+                    <span className="shrink-0 font-mono text-xs text-text-muted/60">{s.label}</span>
+                    <span className="text-right text-xs text-white">{s.value}</span>
                   </div>
                 ))}
               </div>
