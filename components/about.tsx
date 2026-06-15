@@ -11,7 +11,7 @@ const SOCIAL_LINKS = [
   { icon: Github,      label: "GitHub",    href: "https://github.com/foxlancerr" },
   { icon: Instagram,   label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
   { icon: Facebook,    label: "Facebook",  href: "https://www.facebook.com/profile.php?id=100091461979708" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27d%20like%20to%20discuss%20a%20project.%20Can%20we%20connect%3F" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27d%20like%20to%20discuss%20a%20project.%20Can%20we%20connect%3F" },
 ];
 
 const TECH = [

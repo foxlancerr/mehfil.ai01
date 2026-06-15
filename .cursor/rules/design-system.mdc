@@ -1,16 +1,16 @@
 ---
-description: Mehfil.ai.DEV design system — dark cyber aesthetic, tokens, components, layout patterns
+description: mehfil.DEV design system — dark cyber aesthetic, tokens, components, layout patterns
 globs: **/*.tsx,**/*.css
 alwaysApply: false
 ---
 
-# Mehfil.ai.DEV Design System
+# mehfil.DEV Design System
 
-> Reference: https://Mehfil.aiai.framer.website — use as design north-star for layout hierarchy, section structure, pricing tables, FAQ, and CTA patterns.
+> Reference: https://mehfilai.framer.website — use as design north-star for layout hierarchy, section structure, pricing tables, FAQ, and CTA patterns.
 
 ## Visual Identity
 
-**Dark crimson engineering aesthetic.** Pure-black base, crimson + rose-red accents, deep-red ambient glows, glassmorphism panels, monospace labels. Mirrors `https://Mehfil.aiai.framer.website`.
+**Dark crimson engineering aesthetic.** Pure-black base, crimson + rose-red accents, deep-red ambient glows, glassmorphism panels, monospace labels. Mirrors `https://mehfilai.framer.website`.
 
 ## Color Tokens
 
@@ -55,7 +55,7 @@ alwaysApply: false
 
 ## Section Layout Pattern
 
-Every section follows this exact hierarchy (inspired by Mehfil.ai AI reference):
+Every section follows this exact hierarchy (inspired by mehfil AI reference):
 
 ```tsx
 <section id="section-id" className="relative py-24 sm:py-32">
@@ -78,7 +78,7 @@ Every section follows this exact hierarchy (inspired by Mehfil.ai AI reference):
 </section>
 ```
 
-## Pricing Card Pattern (Mehfil.ai AI Reference)
+## Pricing Card Pattern (mehfil AI Reference)
 
 Three tiers: Basic / Standard / Premium (maps to Professional / Small Team / Enterprise from reference).
 

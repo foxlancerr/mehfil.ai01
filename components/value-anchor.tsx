@@ -61,7 +61,7 @@ export default function ValueAnchor() {
           <p className="mt-4 text-base leading-relaxed text-text-muted">
             You&apos;ve probably hired someone who delivered a beautiful design — and then nothing
             happened. No traffic. No leads. No revenue. That&apos;s because design without strategy
-            is just decoration. At Mehfil.ai, we engineer the answer.
+            is just decoration. At mehfil, we engineer the answer.
           </p>
         </motion.div>
 

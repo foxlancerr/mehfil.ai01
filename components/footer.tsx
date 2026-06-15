@@ -21,7 +21,7 @@ const FOOTER_LINKS = [
       { label: "LinkedIn",  href: "https://www.linkedin.com/in/foxlancerr/" },
       { label: "GitHub",    href: "https://github.com/foxlancerr" },
       { label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
-      { label: "WhatsApp",  href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
+      { label: "WhatsApp",  href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
     ],
   },
   {
@@ -41,7 +41,7 @@ const SOCIAL_LINKS = [
   { icon: Github,      label: "GitHub",    href: "https://github.com/foxlancerr" },
   { icon: Instagram,   label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
   { icon: Facebook,    label: "Facebook",  href: "https://www.facebook.com/profile.php?id=100091461979708" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20mehfil%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
 ];
 
 export default function Footer() {
@@ -59,7 +59,7 @@ export default function Footer() {
                 <Terminal className="h-4 w-4 text-matrix-green" />
               </div>
               <span className="font-mono text-sm font-bold tracking-tight text-white">
-                Mehfil<span className="text-matrix-green">.ai</span>
+                Mehfil<span className="text-matrix-green"></span>
               </span>
             </a>
             <p className="mb-2 text-sm leading-relaxed text-text-muted/60">
@@ -115,10 +115,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-subtle/30 pt-8 sm:flex-row">
           <p className="font-mono text-xs text-text-muted/40">
-            &copy; {new Date().getFullYear()} Mehfil.ai · Built by Muhammad Asim
+            &copy; {new Date().getFullYear()} mehfil · Built by Muhammad Asim
           </p>
           <p className="font-mono text-xs text-text-muted/30">
-            Mehfil.ai — One agency. Every skill you need.
+            mehfil — One agency. Every skill you need.
           </p>
         </div>
       </div>

@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Mehfil.ai — Full-Service Digital Agency",
-    short_name: "Mehfil.ai",
+    name: "mehfil — Full-Service Digital Agency",
+    short_name: "mehfil",
     description:
       "Web development, AI automation, SEO, digital marketing, Web3 — all under one roof.",
     start_url: "/",

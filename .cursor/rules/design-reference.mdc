@@ -1,10 +1,10 @@
 ---
-description: Design reference from Mehfil.aiai.framer.website — page patterns, section hierarchy, UX principles
+description: Design reference from mehfilai.framer.website — page patterns, section hierarchy, UX principles
 globs: **/*.tsx
 alwaysApply: false
 ---
 
-# Design Reference — Mehfil.ai AI (https://Mehfil.aiai.framer.website)
+# Design Reference — mehfil AI (https://mehfilai.framer.website)
 
 Use this reference for layout decisions, section structure, and UX patterns when adding or modifying sections.
 
@@ -33,7 +33,7 @@ Use this reference for layout decisions, section structure, and UX patterns when
 - **Social proof row**: tech stack logos or client badges below CTAs
 - **Background**: radial gradient aura emanating from center
 
-## Pricing Section (from Mehfil.aiai.framer.website/pricing)
+## Pricing Section (from mehfilai.framer.website/pricing)
 
 Three-tier card layout:
 ```

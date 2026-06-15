@@ -1,4 +1,4 @@
-# Mehfil.ai.DEV — Architecture & Dependency Map
+# mehfil.DEV — Architecture & Dependency Map
 
 ## File Structure
 
@@ -20,7 +20,7 @@ agency/
 │   ├── contact.tsx          ← #contact: CTA section with 4 contact options + urgency line
 │   ├── cursor-glow.tsx      ← Mouse-following radial glow (desktop only)
 │   ├── faq.tsx              ← #faq: Radix Accordion with 5 questions
-│   ├── footer.tsx           ← 4-column footer (Mehfil.ai branding)
+│   ├── footer.tsx           ← 4-column footer (mehfil branding)
 │   ├── hero.tsx             ← Full-viewport hero: badge, headline, dual CTAs, trust bar
 │   ├── navbar.tsx           ← Fixed navbar: logo, anchors, mobile menu (Zustand)
 │   ├── offers.tsx           ← #offers: June promo — 2 featured + 4 standard offer cards (bento)
@@ -45,7 +45,7 @@ agency/
 │   ├── tailwind-v4.mdc      ← Tailwind v4 rules
 │   ├── nextjs-patterns.mdc  ← Next.js 16 + React 19 patterns
 │   ├── design-system.mdc    ← Design tokens + component patterns
-│   ├── design-reference.mdc ← Mehfil.ai AI UX/layout reference
+│   ├── design-reference.mdc ← mehfil AI UX/layout reference
 │   ├── self-improve.mdc     ← Token efficiency + memory hygiene
 │   └── memory.mdc           ← When/how to read memory/ files
 ├── AGENTS.md                ← Next.js 16 breaking changes warning
