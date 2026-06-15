@@ -7,7 +7,7 @@
 - **Category:** Full-service digital agency — web dev, AI automation, SEO, digital marketing, Web3, WordPress, graphic design, deployment
 - **Voice:** Confident, results-driven, direct. Outcome-focused language. No fluff.
 - **Founded by:** Muhammad Asim — AI automation & scalable web architecture specialist
-- **Legal name:** AM Digitalz
+- **Legal name:** Mehfil.ai
 
 ## Target Audience
 

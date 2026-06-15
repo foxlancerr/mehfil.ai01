@@ -1,6 +1,6 @@
 "use client";
 
-import { Terminal, Github, Linkedin, MessageCircle } from "lucide-react";
+import { Terminal, Github, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const FOOTER_LINKS = [
   {
@@ -18,9 +18,10 @@ const FOOTER_LINKS = [
     links: [
       { label: "FAQ", href: "#faq" },
       { label: "Fiverr Profile", href: "https://www.fiverr.com/foxlancerr" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/foxlancerr" },
-      { label: "GitHub", href: "https://github.com/foxlancerr" },
-      { label: "WhatsApp", href: "https://wa.me/923201942001" },
+      { label: "LinkedIn",  href: "https://www.linkedin.com/in/foxlancerr/" },
+      { label: "GitHub",    href: "https://github.com/foxlancerr" },
+      { label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
+      { label: "WhatsApp",  href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
     ],
   },
   {
@@ -36,9 +37,11 @@ const FOOTER_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/foxlancerr" },
-  { icon: Github, label: "GitHub", href: "https://github.com/foxlancerr" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001" },
+  { icon: Linkedin,    label: "LinkedIn",  href: "https://www.linkedin.com/in/foxlancerr/" },
+  { icon: Github,      label: "GitHub",    href: "https://github.com/foxlancerr" },
+  { icon: Instagram,   label: "Instagram", href: "https://www.instagram.com/foxlancerr/" },
+  { icon: Facebook,    label: "Facebook",  href: "https://www.facebook.com/profile.php?id=100091461979708" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai%21%20I%27m%20interested%20in%20your%20digital%20services.%20Can%20we%20connect%3F" },
 ];
 
 export default function Footer() {
@@ -112,7 +115,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-subtle/30 pt-8 sm:flex-row">
           <p className="font-mono text-xs text-text-muted/40">
-            &copy; {new Date().getFullYear()} AM Digitalz · Built by Muhammad Asim
+            &copy; {new Date().getFullYear()} Mehfil.ai · Built by Muhammad Asim
           </p>
           <p className="font-mono text-xs text-text-muted/30">
             Mehfil.ai — One agency. Every skill you need.

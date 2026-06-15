@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +40,8 @@ const OFFERS: OfferCard[] = [
     ],
     urgency: "Only 5 free audits / month",
     cta: "Claim free audit",
-    href: "#contact",
+    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27d%20like%20to%20claim%20my%20free%20website%20%26%20ads%20audit.%20Can%20you%20schedule%20me%20in%3F",
+    external: true,
   },
   {
     id: "bundle",
@@ -57,7 +59,7 @@ const OFFERS: OfferCard[] = [
     price: "$310",
     priceWas: "$420",
     cta: "Get the bundle",
-    href: "https://www.fiverr.com/foxlancerr",
+    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27m%20interested%20in%20the%20Website%20%2B%20First%20Month%20Ads%20bundle%20(%24310).%20Can%20we%20discuss%20the%20details%3F",
     external: true,
   },
   {
@@ -75,7 +77,7 @@ const OFFERS: OfferCard[] = [
     price: "$55",
     priceWas: "$90",
     cta: "Start for $55",
-    href: "https://www.fiverr.com/foxlancerr",
+    href: "https://wa.me/923201942001?text=Hi%20Mehfil.ai!%20I%27d%20like%20to%20get%20started%20with%20the%20%2455%20Starter%20Landing%20Page.%20When%20can%20we%20kick%20off%3F",
     external: true,
   },
 ];
@@ -143,36 +145,30 @@ function PriceRow({ price, priceWas }: { price: string; priceWas?: string }) {
 
 // ─── Main section ─────────────────────────────────────────────────────────────
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const cardStagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
-};
-
 export default function Offers() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"],
+  });
+
+  // Left panel: gently brightens + rises as user scrolls through the section
+  const leftOpacity   = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.4, 1, 1, 0.5]);
+  const leftY         = useTransform(scrollYProgress, [0, 0.2],          [24, 0]);
+
   return (
-    <section id="offers" className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-32">
+    <section ref={sectionRef} id="offers" className="relative px-6 py-24 lg:px-12 lg:py-32">
       {/* top rule */}
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="mx-auto max-w-[1100px]">
-        <div className="lg:grid lg:grid-cols-[40%_60%] lg:gap-20">
+        {/* items-start is REQUIRED for sticky to work inside a grid */}
+        <div className="lg:grid lg:grid-cols-[40%_60%] lg:gap-20 lg:items-start">
 
-          {/* ── Left editorial column ── */}
+          {/* ── Left editorial column — sticky + scroll-driven ── */}
           <motion.div
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            style={{ opacity: leftOpacity, y: leftY }}
             className="lg:sticky lg:top-28 lg:self-start pb-12 lg:pb-0"
           >
             {/* Eyebrow */}
@@ -216,19 +212,16 @@ export default function Offers() {
           </motion.div>
 
           {/* ── Right cards column ── */}
-          <motion.div
-            variants={cardStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="flex flex-col gap-3"
-          >
-            {OFFERS.map((offer) => (
+          <div className="flex flex-col gap-3">
+            {OFFERS.map((offer, i) => (
               <motion.div
                 key={offer.id}
-                variants={cardVariants}
+                initial={{ opacity: 0, y: 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                style={{ willChange: "transform" }}
                 className={cn(
                   "group relative overflow-hidden rounded-xl border p-6 transition-colors duration-300",
                   offer.featured
@@ -295,7 +288,7 @@ export default function Offers() {
             <p className="mt-1 px-1 font-mono text-[11px] text-white/20">
               No contracts. No lock-in. Scope + price in writing before we start.
             </p>
-          </motion.div>
+          </div>
 
         </div>
       </div>

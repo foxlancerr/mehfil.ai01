@@ -140,7 +140,7 @@ export default function ServicePillars() {
                 className="glass-panel glow-border group flex flex-col gap-6 rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.005] md:flex-row md:items-start"
               >
                 {/* Number + Icon */}
-                <div className="flex items-center gap-4 md:min-w-[180px]">
+                <div className="flex items-center gap-4">
                   <span
                     className={`font-mono text-3xl font-bold ${
                       isCyan ? "text-aquamarine/30" : "text-matrix-green/30"
