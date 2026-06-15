@@ -1,20 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, Zap, Shield, Clock } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 lg:px-8 pt-16"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 lg:px-12 pt-16"
     >
       {/* Hero Aura */}
       <div className="absolute inset-0 bg-hero-aura-lg" />
       <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-hero-aura opacity-80" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto text-center">
+      <div className="relative z-10 mx-auto max-w-5xl w-full text-center">
         {/* Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export default function Hero() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-matrix-green" />
             </span>
             <span className="font-mono text-xs font-medium tracking-widest text-text-neon">
-              SYSTEM GATEWAY: ACTIVE & SECURE FOR GLOBAL DISPATCH
+              NOW TAKING ON NEW CLIENTS — 3 SPOTS LEFT THIS MONTH
             </span>
           </div>
         </motion.div>
@@ -39,9 +39,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.35 }}
           className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
         >
-          <span className="text-white">AI Code Has Limits.</span>
+          <span className="text-white">Your Business Deserves</span>
           <br />
-          <span className="text-gradient-hero">Your Software Shouldn&apos;t.</span>
+          <span className="text-gradient-hero">More Than a Pretty Website.</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -49,70 +49,74 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-text-muted md:text-lg"
+          className="mx-auto mb-4 max-w-3xl text-base leading-relaxed text-text-muted md:text-lg"
         >
-          Did your MVP break on deployment? Stop wasting AI credits on compilation
-          loops. We take fragile, vibe-coded scripts from{" "}
-          <span className="text-white font-medium">Bolt.new</span>,{" "}
-          <span className="text-white font-medium">Lovable</span>,{" "}
-          <span className="text-white font-medium">Cursor</span>, and{" "}
-          <span className="text-white font-medium">Replit</span> and engineer them
-          into ultra-fast, type-safe Next.js & Web3 production-grade applications
-          built to handle real market traffic.
+          We build fast, conversion-focused digital systems — from AI-powered web apps to full
+          marketing funnels — that actually bring clients through the door.
         </motion.p>
 
-        {/* Panic Offer Card */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.65 }}
-          className="glass-panel glow-border mx-auto mb-10 max-w-2xl rounded-2xl p-6 text-left"
+          transition={{ duration: 0.7, delay: 0.58 }}
+          className="mx-auto mb-10 max-w-2xl text-sm leading-relaxed text-text-muted/70"
         >
-          <div className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-matrix-green/10 border border-matrix-green/20">
-              <Zap className="h-5 w-5 text-matrix-green" />
-            </div>
-            <div>
-              <div className="mb-1.5 flex items-center gap-2">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-matrix-green">
-                  24-Hour Panic Offer
-                </span>
-                <Clock className="h-3.5 w-3.5 text-matrix-green/60" />
-              </div>
-              <p className="text-sm leading-relaxed text-text-muted">
-                Got an application trapped in an infinite loop or a Vercel
-                deployment crash right now? Book an immediate{" "}
-                <span className="text-white font-medium">
-                  Baseline Diagnostic Audit
-                </span>{" "}
-                today, and if we can&apos;t isolate the exact structural
-                architectural failure within 12 hours, your audit is completely{" "}
-                <span className="text-matrix-green font-semibold">free</span>.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          One agency. Every layer.{" "}
+          <span className="text-white font-medium">Web development</span>,{" "}
+          <span className="text-white font-medium">AI automation</span>,{" "}
+          <span className="text-white font-medium">SEO</span>,{" "}
+          <span className="text-white font-medium">digital marketing</span>,{" "}
+          <span className="text-white font-medium">Web3</span>, and more — all under one roof so
+          you never chase five freelancers again.
+        </motion.p>
 
-        {/* CTA Grid */}
+        {/* CTA Row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row "
+          transition={{ duration: 0.7, delay: 0.7 }}
+          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <a
-            href="https://www.fiverr.com/foxlancerr"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="btn-primary animate-pulse-glow text-sm px-8 py-4"
           >
-            Resolve Your Bug via Fiverr
+            Get a Free Audit
             <ArrowRight className="h-4 w-4" />
           </a>
-        
+          <a
+            href="#case-studies"
+            className="btn-glass text-sm px-8 py-4"
+          >
+            See Our Work
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </motion.div>
 
-       
+        {/* Trust Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.95 }}
+          className="mt-10 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-6"
+        >
+          <div className="flex items-center gap-1.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-3.5 w-3.5 fill-matrix-green text-matrix-green" />
+            ))}
+            <span className="ml-1 font-mono text-xs text-text-muted">
+              Verified 5-star reviews on Fiverr
+            </span>
+          </div>
+          <span className="hidden h-3 w-px bg-subtle/60 sm:block" />
+          <span className="font-mono text-xs text-text-muted">
+            10+ Live Deployments
+          </span>
+          <span className="hidden h-3 w-px bg-subtle/60 sm:block" />
+          <span className="font-mono text-xs text-text-muted">
+            Clients in US, UK, Germany &amp; beyond
+          </span>
+        </motion.div>
       </div>
 
       {/* Bottom fade */}

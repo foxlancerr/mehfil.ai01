@@ -1,157 +1,146 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { TrendingDown, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
+import { Globe, ExternalLink } from "lucide-react";
 
-const CASE_STUDIES = [
+const PROJECTS = [
   {
-    icon: TrendingDown,
-    title: "The AI Content Engine Transformation",
-    blueprint:
-      "Re-engineered a full-stack automated generation tool that suffered from broken state-sync routines and inconsistent data pipeline handling.",
-    metric: "100%",
-    metricLabel: "Reduction in Background Computation Lag",
-    metricDescription:
-      "Cut background computation lag entirely and achieved seamless automated execution pipelines with zero state desync.",
+    number: "01",
+    title: "Web3 IDO Launchpad — ChainGPT Pad",
+    live: "pad.chaingpt.org",
+    liveHref: "https://pad.chaingpt.org",
+    description:
+      "Scaled a high-traffic decentralized IDO launchpad with EVM smart contracts, multi-wallet onboarding (MetaMask, WalletConnect), and real-time token staking — serving thousands of users across multiple blockchains.",
+    tags: ["Web3", "Ethers.js", "TypeScript", "Smart Contracts"],
     accent: "matrix-green",
-    tags: ["React", "Zustand", "API Integration", "Pipeline Optimization"],
   },
   {
-    icon: ShieldCheck,
-    title: "Web3 IDO Launchpad Infrastructure",
-    blueprint:
-      "Migrated an un-typed, fragile decentralized application frontend into a pristine production-ready setup with comprehensive type safety.",
-    metric: "100%",
-    metricLabel: "Type-Safe Security Across Multi-Wallet Triggers",
-    metricDescription:
-      "Achieved absolute, type-safe security across complex multi-wallet validation triggers and smart contract interactions.",
+    number: "02",
+    title: "Zafora SaaS Platform",
+    live: null,
+    liveHref: null,
+    description:
+      "Transformed a messy Replit prototype into a production-ready SaaS with a custom Admin CMS, full CI/CD pipeline, PostgreSQL backend, AWS S3 storage, and airtight security.",
+    tags: ["Next.js 14", "PostgreSQL", "Railway", "AWS S3", "Vercel Edge"],
     accent: "aquamarine",
-    tags: ["Web3", "TypeScript", "Wallet Connect", "Smart Contracts"],
+  },
+  {
+    number: "03",
+    title: "sift.ai — Autonomous B2B Lead Engine",
+    live: null,
+    liveHref: null,
+    description:
+      "Built a 5-agent AI pipeline that autonomously discovers local businesses, audits their digital footprint, and drafts hyper-personalized outreach — fully async, zero human input required.",
+    tags: ["AI Agents", "n8n", "RAG", "Automation"],
+    accent: "matrix-green",
+  },
+  {
+    number: "04",
+    title: "DigitX Agency Website",
+    live: "digitx-agency.vercel.app",
+    liveHref: "https://digitx-agency.vercel.app",
+    description:
+      "High-converting digital agency website with 0.52s load time, interactive services matrix, SEO-optimized metadata pipelines, and Vercel Edge deployment.",
+    tags: ["Next.js", "Zustand", "Tailwind CSS", "TypeScript"],
+    accent: "aquamarine",
+  },
+  {
+    number: "05",
+    title: "AI NFT Generator & Minting Engine — ChainGPT",
+    live: "nft.chaingpt.org",
+    liveHref: "https://nft.chaingpt.org",
+    description:
+      "End-to-end decentralized AI NFT platform with cross-chain minting (ETH, BNB, Polygon, Avalanche, Solana), ERC-721/1155 support, and gas-efficient bulk minting.",
+    tags: ["Web3", "Solidity", "Ethers.js", "Cross-Chain"],
+    accent: "matrix-green",
   },
 ];
 
-function AnimatedCounter({ target }: { target: string }) {
-  const [display, setDisplay] = useState("0");
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const end = parseInt(target);
-    const duration = 1500;
-    const startTime = performance.now();
-
-    const animate = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * end);
-      setDisplay(current + "%");
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-
-    requestAnimationFrame(animate);
-  }, [isInView, target]);
-
-  return <span ref={ref}>{display}</span>;
-}
-
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="relative px-6 lg:px-8 py-24 lg:py-32">
+    <section id="case-studies" className="relative px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1100px]">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 max-w-2xl"
+          className="mb-16 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Strategic Case Studies
+            <span className="mr-1.5">{'//'}</span> Real Work. Real Results.
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Proven outcomes,{" "}
-            <span className="text-gradient-accent">not just promises</span>
+            Projects That Ship.{" "}
+            <span className="text-gradient-accent">Metrics That Move.</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-text-muted">
-            Backed by engineering tenure at Funavry Technologies and AAK
-            Tele-Science — here are the hard technical metrics.
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
+            Live in production. Used by real users. Built to last.
           </p>
         </motion.div>
 
-        {/* Case Study Cards */}
+        {/* Projects Grid */}
         <div className="grid gap-5 lg:grid-cols-2">
-          {CASE_STUDIES.map((study, index) => {
-            const Icon = study.icon;
-            const isCyan = study.accent === "aquamarine";
+          {PROJECTS.map((project, index) => {
+            const isCyan = project.accent === "aquamarine";
+            const isLast = index === PROJECTS.length - 1;
             return (
               <motion.div
-                key={study.title}
+                key={project.number}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="glass-panel glow-border group rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.01]"
+                transition={{ duration: 0.6, delay: (index % 2) * 0.15 }}
+                className={`glass-panel glow-border group rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.01] ${isLast ? "lg:col-span-2" : ""}`}
               >
-                {/* Icon + Title */}
-                <div className="mb-5 flex items-center gap-3">
-                  <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-xl border ${
-                      isCyan
-                        ? "border-aquamarine/20 bg-aquamarine/10"
-                        : "border-matrix-green/20 bg-matrix-green/10"
-                    }`}
-                  >
-                    <Icon
-                      className={`h-5 w-5 ${
-                        isCyan ? "text-aquamarine" : "text-matrix-green"
-                      }`}
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{study.title}</h3>
-                </div>
-
-                {/* Blueprint */}
-                <div className="mb-6 rounded-xl border border-subtle/60 bg-black/30 p-4">
-                  <span className="mb-2 block font-mono text-[10px] font-semibold uppercase tracking-widest text-text-muted/60">
-                    Technical Blueprint
-                  </span>
-                  <p className="text-sm leading-relaxed text-text-muted">
-                    {study.blueprint}
-                  </p>
-                </div>
-
-                {/* Metric */}
-                <div className="mb-5 rounded-xl border border-subtle/60 bg-black/30 p-5">
-                  <div className="flex items-end gap-3">
+                {/* Header row */}
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
                     <span
-                      className={`text-4xl font-extrabold tabular-nums ${
-                        isCyan ? "text-aquamarine" : "text-matrix-green"
+                      className={`font-mono text-2xl font-bold ${
+                        isCyan ? "text-aquamarine/30" : "text-matrix-green/30"
                       }`}
                     >
-                      <AnimatedCounter target={study.metric} />
+                      {project.number}
                     </span>
+                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
                   </div>
-                  <p className="mt-1 text-sm font-semibold text-white">
-                    {study.metricLabel}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-text-muted">
-                    {study.metricDescription}
-                  </p>
+                  {project.live && (
+                    <a
+                      href={project.liveHref ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex shrink-0 items-center gap-1.5 rounded-lg border px-3 py-1.5 font-mono text-[11px] font-medium transition-colors ${
+                        isCyan
+                          ? "border-aquamarine/20 bg-aquamarine/5 text-aquamarine/80 hover:border-aquamarine/40"
+                          : "border-matrix-green/20 bg-matrix-green/5 text-matrix-green/80 hover:border-matrix-green/40"
+                      }`}
+                    >
+                      <Globe className="h-3 w-3" />
+                      {project.live}
+                      <ExternalLink className="h-3 w-3 opacity-60" />
+                    </a>
+                  )}
                 </div>
 
-                {/* Tags */}
+                {/* Description */}
+                <p className="mb-5 text-sm leading-relaxed text-text-muted">
+                  {project.description}
+                </p>
+
+                {/* Stack tags */}
                 <div className="flex flex-wrap gap-2">
-                  {study.tags.map((tag) => (
+                  {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md border border-subtle/50 bg-surface/40 px-2.5 py-1 font-mono text-[11px] text-text-muted"
+                      className={`rounded-md border px-2.5 py-1 font-mono text-[11px] font-medium tracking-wide ${
+                        isCyan
+                          ? "border-aquamarine/15 bg-aquamarine/5 text-aquamarine/80"
+                          : "border-matrix-green/15 bg-matrix-green/5 text-matrix-green/80"
+                      }`}
                     >
                       {tag}
                     </span>

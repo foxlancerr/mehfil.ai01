@@ -1,14 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const TESTIMONIALS = [
   {
     quote:
-      "Absolutely rescued my launch. My Bolt.new prototype was throwing endless hydration errors on deployment, and the AI kept making it worse. He jumped in, refactored the entire system into clean Next.js, and had it live on Vercel in no time. Absolute lifesaver!",
+      "Absolutely rescued my launch. My prototype was throwing endless errors on deployment. He refactored the entire system into clean Next.js and had it live on Vercel in no time. Absolute lifesaver.",
     author: "SaaS Founder",
     location: "United States",
+    initials: "SF",
     rating: 5,
   },
   {
@@ -16,101 +18,250 @@ const TESTIMONIALS = [
       "Elite technical expertise. He took our complex Web3 frontend, added strict type safety, and fixed our broken wallet connections. Highly recommended for any serious startup.",
     author: "Web3 Project Lead",
     location: "Germany",
+    initials: "WP",
     rating: 5,
   },
   {
     quote:
-      "Outstanding attention to detail. Delivered a complete SaaS migration from a fragile AI prototype into a clean, maintainable codebase. The Zustand state management and Supabase integration were flawless.",
+      "Outstanding attention to detail. Complete SaaS migration from a fragile AI prototype into a clean, maintainable codebase. The state management and database integration were flawless.",
     author: "CTO",
     location: "United Kingdom",
+    initials: "CT",
+    rating: 5,
+  },
+  {
+    quote:
+      "Absolutely rescued my launch. My prototype was throwing endless errors on deployment. He refactored the entire system into clean Next.js and had it live on Vercel in no time. Absolute lifesaver.",
+    author: "SaaS Founder",
+    location: "United States",
+    initials: "SF",
+    rating: 5,
+  },
+  {
+    quote:
+      "Elite technical expertise. He took our complex Web3 frontend, added strict type safety, and fixed our broken wallet connections. Highly recommended for any serious startup.",
+    author: "Web3 Project Lead",
+    location: "Germany",
+    initials: "WP",
+    rating: 5,
+  },
+  {
+    quote:
+      "Outstanding attention to detail. Complete SaaS migration from a fragile AI prototype into a clean, maintainable codebase. The state management and database integration were flawless.",
+    author: "CTO",
+    location: "United Kingdom",
+    initials: "CT",
     rating: 5,
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
+const CARD_WIDTH_ACTIVE = 500;
+const CARD_WIDTH_DEFAULT = 200;
+const CARD_WIDTH_COMPRESSED = 220;
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+const StarIcon = () => (
+  <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+  </svg>
+);
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
-    <section id="testimonials" className="relative px-6 lg:px-8 py-24 lg:py-32">
+    <section id="testimonials" className="relative overflow-hidden px-6 lg:px-12 py-24 lg:py-32">
       <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-subtle/50 to-transparent" />
 
-      <div className="mx-auto max-w-7xl">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/4 blur-3xl" />
+
+      <div className="mx-auto max-w-[1100px]">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-14 text-center"
         >
           <span className="section-label mb-4 inline-flex">
-            <span className="mr-1.5">{'//'}</span> Verified Client Testimonials
+            <span className="mr-1.5">{'//'}</span> What Clients Say
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Real feedback from{" "}
-            <span className="text-gradient-accent">verified buyers</span>
+            Real Feedback.{" "}
+            <span className="text-gradient-accent">Zero Filtering.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-muted">
-            Pulled straight from verified 5-star reviews on Fiverr.
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-text-muted">
+            Hover any card to read the full review. Pulled from verified 5-star ratings on Fiverr.
           </p>
         </motion.div>
 
-        {/* Testimonial Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-5 md:grid-cols-3"
-        >
-          {TESTIMONIALS.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="glass-panel glow-border group flex flex-col rounded-2xl p-7 transition-transform duration-300 hover:scale-[1.015]"
-            >
-              {/* Quote Icon */}
-              <Quote className="mb-4 h-8 w-8 text-matrix-green/20" />
+        {/* Cards strip */}
+        <div className="relative">
+          {/* Fade edges on desktop */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-16 bg-gradient-to-r from-black to-transparent lg:block" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-16 bg-gradient-to-l from-black to-transparent lg:block" />
 
-              {/* Stars */}
-              <div className="mb-4 flex gap-0.5">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <svg
-                    key={i}
-                    className="h-4 w-4 text-matrix-green"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex gap-4 overflow-x-auto lg:justify-center"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {TESTIMONIALS.map((t, index) => {
+              const isActive = activeIndex === index;
+              const isCompressed = activeIndex !== null && !isActive;
+
+              return (
+                <motion.div
+                  key={index}
+                  animate={{
+                    width: isActive
+                      ? CARD_WIDTH_ACTIVE
+                      : isCompressed
+                        ? CARD_WIDTH_COMPRESSED
+                        : CARD_WIDTH_DEFAULT,
+                  }}
+                  transition={{ type: "spring", stiffness: 320, damping: 32 }}
+                  className={cn(
+                    "relative flex h-[260px] shrink-0 flex-col overflow-hidden rounded-2xl border p-6",
+                    "cursor-pointer select-none",
+                    isActive
+                      ? "border-crimson/50 bg-surface z-10"
+                      : "border-subtle/50 bg-surface/70 hover:border-crimson/25"
+                  )}
+                  style={{
+                    boxShadow: isActive
+                      ? "0 0 50px rgba(225,29,72,0.15), 0 0 0 1px rgba(225,29,72,0.10)"
+                      : undefined,
+                  }}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseLeave={() => setActiveIndex(null)}
+                >
+                  {/* Radial glow overlay */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        key="glow"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(225,29,72,0.14),transparent_70%)]"
+                      />
+                    )}
+                  </AnimatePresence>
+
+                  {/* Top row: large quote mark + stars */}
+                  <div className="mb-4 flex items-start justify-between">
+                    {/* Decorative quote mark */}
+                    <svg
+                      className={cn(
+                        "h-8 w-8 shrink-0 transition-colors duration-300",
+                        isActive ? "text-crimson/50" : "text-crimson/15"
+                      )}
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                    >
+                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                    </svg>
+
+                    {/* Stars — always visible */}
+                    {
+                      isActive && (
+                        <div
+                          className={cn(
+                            "flex gap-0.5 transition-opacity duration-200",
+                            isCompressed ? "opacity-0" : "opacity-100"
+                          )}
+                        >
+                          {Array.from({ length: t.rating }).map((_, i) => (
+                            <span
+                              key={i}
+                              className={cn(
+                                "transition-colors duration-300",
+                                isActive ? "text-crimson" : "text-crimson/60"
+                              )}
+                            >
+                              <StarIcon />
+                            </span>
+                          ))}
+                        </div>
+                      )
+                    }
+                  </div>
+
+                  {/* Quote text — always rendered, clipped by overflow:hidden */}
+                  <p
+                    className={cn(
+                      "flex-1 text-sm leading-relaxed italic transition-colors duration-300",
+                      isActive ? "text-white/90" : "text-text-muted/80"
+                    )}
                   >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
 
-              {/* Quote Text */}
-              <p className="mb-6 flex-1 text-sm leading-relaxed text-text-muted italic">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
+                  {/* Author footer — always visible */}
+                  <div
+                    className={cn(
+                      "mt-4 flex items-center gap-3 border-t pt-4 transition-colors duration-300",
+                      isActive ? "border-crimson/20" : "border-subtle/40"
+                    )}
+                  >
+                    {/* Avatar initials */}
+                    <div
+                      className={cn(
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-[10px] font-bold transition-all duration-300",
+                        isActive
+                          ? "border-crimson/40 bg-crimson/15 text-crimson"
+                          : "border-subtle/60 bg-black/40 text-text-muted/60"
+                      )}
+                    >
+                      {t.initials}
+                    </div>
 
-              {/* Author */}
-              <div className="border-t border-subtle/50 pt-4">
-                <p className="text-sm font-semibold text-white">
-                  {testimonial.author}
-                </p>
-                <p className="mt-0.5 font-mono text-xs text-text-muted/60">
-                  {testimonial.location}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                    <div className="min-w-0 flex-1">
+                      <p
+                        className={cn(
+                          "text-sm font-semibold leading-tight transition-colors duration-200 whitespace-nowrap",
+                          isActive ? "text-white" : "text-white/75"
+                        )}
+                      >
+                        {t.author}
+                      </p>
+                      <p
+                        className={cn(
+                          "mt-0.5 font-mono text-[10px] text-text-muted/50 truncate transition-opacity duration-200",
+                          isCompressed ? "opacity-0" : "opacity-100"
+                        )}
+                      >
+                        {t.location}
+                      </p>
+                    </div>
+
+                    {/* Verified badge — fades in on expand */}
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          key="badge"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.2, delay: 0.08 }}
+                          className="shrink-0 rounded-md border border-crimson/25 bg-crimson/10 px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-crimson/80"
+                        >
+                          ★ Fiverr Verified
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
