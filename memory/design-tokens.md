@@ -101,6 +101,9 @@
 ### Animation Delays
 - `.stagger-1` through `.stagger-5` — 0.1s to 0.5s `animation-delay`
 
+### Blog Typography
+- `.prose-blog` — dark-theme article body styles (h2/h3 anchors with `scroll-mt-28`, crimson list markers, muted body text)
+
 ## Spacing Scale
 
 | Context | Value |

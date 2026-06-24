@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -378,7 +381,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`relative dark ${inter.variable} ${jetbrainsMono.variable}`} prefix="og: https://ogp.me/ns#">
+    <html lang="en" className={cn("relative", "dark", inter.variable, jetbrainsMono.variable, "font-sans", geist.variable)} prefix="og: https://ogp.me/ns#">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
