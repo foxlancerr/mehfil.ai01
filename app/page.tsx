@@ -14,6 +14,8 @@ import AnimatedGrid from "@/components/animated-grid";
 import SmoothScroll from "@/components/smooth-scroll";
 import Deployments from "@/components/deployments";
 import Chatbot from "@/components/chatbot";
+import { posts } from "@/constants/blog-posts";
+import { BlogCard } from "@/components/blog/blog-card";
 
 export default function Home() {
   return (
@@ -40,8 +42,23 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <About />
+
       <Contact />
 
+      <section className="relative overflow-hidden px-6 lg:px-12">
+
+        <div className="mx-auto max-w-[1100px]">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+            {posts.map((post, index) => (
+
+              <BlogCard key={post.slug} post={post} index={index} />
+
+            ))}
+
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <Footer />
 

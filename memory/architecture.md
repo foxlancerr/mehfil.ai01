@@ -12,7 +12,11 @@ agency/
 │   ├── robots.ts              ← robots.txt (Next.js MetadataRoute)
 │   ├── manifest.ts            ← Web app manifest (PWA metadata)
 │   ├── opengraph-image.tsx    ← Auto-generated OG image via next/og ImageResponse
-│   └── page.tsx               ← Single page composition (15 sections)
+│   ├── page.tsx               ← Single page composition (15 sections)
+│   └── blog/
+│       ├── layout.tsx         ← Blog shell: AnimatedGrid, CursorGlow, SmoothScroll, Navbar, Footer
+│       ├── page.tsx           ← Blog index with category filter
+│       └── [slug]/page.tsx    ← Article page with JSON-LD
 ├── components/
 │   ├── animated-grid.tsx    ← Fixed background: drifting grid + corner glows
 │   ├── about.tsx            ← #about: bio, metric cards, tech stack
@@ -29,6 +33,7 @@ agency/
 │   ├── stats-bar.tsx        ← Credibility stats strip (10+ projects, 5★, 4th/600, 5+ countries)
 │   ├── testimonials.tsx     ← #testimonials: 3 client quotes
 │   ├── chatbot.tsx          ← Floating chatbot widget (FAB + animated chat window, static responses)
+│   ├── blog/                ← Blog UI components (cards, TOC, diagnostic ticket, FAQ accordion)
 │   └── value-anchor.tsx     ← 3 value prop cards: strategy, one-team, conversion
 ├── constants/
 │   └── chatbot-config.ts    ← Static chatbot responses, quick replies, bot config (swap for live API later)
@@ -63,11 +68,14 @@ agency/
 |---------|---------|---------|
 | `next` | 16.2.7 | All |
 | `react` / `react-dom` | 19.2.4 | All |
-| `framer-motion` | ^11.15.0 | All 12 components (scroll animations) |
-| `@radix-ui/react-accordion` | ^1.2.0 | `faq.tsx` |
+| `framer-motion` | ^11.15.0 | Homepage + blog components (scroll animations) |
+| `@radix-ui/react-accordion` | ^1.2.0 | `faq.tsx`, `article-faq.tsx` |
+| `lenis` | ^1.3.23 | `smooth-scroll.tsx`, `app/blog/layout.tsx` |
 | `@radix-ui/react-slot` | ^1.1.0 | Installed, currently unused |
 | `lucide-react` | ^0.468.0 | `navbar`, `hero`, `value-anchor`, `pricing`, `footer` |
 | `zustand` | ^5.0.0 | `navbar.tsx`, `cursor-glow.tsx` |
+| `react-markdown` | latest | `components/blog/article-body.tsx` |
+| `remark-gfm` | latest | GFM tables/task lists in blog markdown |
 | `clsx` | ^2.1.0 | `lib/utils.ts` |
 | `tailwind-merge` | latest | `lib/utils.ts` |
 | `axios` | ^1.7.0 | Installed, currently unused |
