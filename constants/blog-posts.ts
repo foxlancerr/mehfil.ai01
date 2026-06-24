@@ -120,191 +120,123 @@ export const posts: BlogPost[] = [
         ],
 
         bodyMarkdown: `
-      Most business owners aren't developers.
-      
-      You probably don't know React, hosting, APIs, or databases — and honestly, you shouldn't have to.
-      
-      The problem is that hiring a developer often feels like buying something you can't inspect yourself. You can see a finished website, but you can't easily tell whether the work behind it is good.
-      
-      That's exactly why so many businesses end up overpaying, getting ghosted, or paying twice for the same website.
-      
-      ## Why hiring a developer feels so risky
-      
-      Unlike hiring a plumber or buying a car, you can't easily judge software quality with your own eyes.
-      
-      Many business owners hire based on:
-      
-      - Price
-      - Portfolio screenshots
-      - Friend recommendations
-      - Confidence during sales calls
-      
-      Unfortunately, these things alone don't predict whether the project will actually succeed.
-      
-      Across Reddit, Quora, and business communities, the same complaints appear repeatedly:
-      
-      - "The developer stopped replying."
-      - "Everything broke after launch."
-      - "I don't even own my website."
-      - "I had to hire someone else to rebuild it."
-      
-      Most of these problems started before money changed hands.
-      
-      ## The habits good developers almost always have
-      
-      After years of seeing successful and failed projects, certain patterns show up repeatedly.
-      
-      ### 1. They ask questions before quoting
-      
-      Bad developers promise quickly.
-      
-      Good developers investigate first.
-      
-      Expect questions like:
-      
-      - Who are your customers?
-      - What's your goal?
-      - Do you need leads or online sales?
-      - Who will manage the website later?
-      - Do you already own a domain?
-      
-      If someone immediately gives a price without understanding your business, they're probably guessing.
-      
-      ### 2. They explain things in plain English
-      
-      You shouldn't feel confused after talking with your own developer.
-      
-      Good developers explain:
-      
-      - why something matters,
-      - what the trade-offs are,
-      - and how decisions affect your business.
-      
-      They don't hide behind technical buzzwords.
-      
-      Because at the end of the day, you're paying for results — not vocabulary.
-      
-      ### 3. They talk about process, not only code
-      
-      Most failed projects are communication failures, not technical failures.
-      
-      Good developers discuss:
-      
-      - milestones,
-      - timelines,
-      - revisions,
-      - testing,
-      - launch plans,
-      - and support after delivery.
-      
-      If all they talk about is frameworks and technologies, they may be thinking like programmers instead of business partners.
-      
-      ### 4. They admit what they don't know
-      
-      Nobody is an expert in everything.
-      
-      If someone claims they master:
-      
-      - AI,
-      - SEO,
-      - mobile apps,
-      - blockchain,
-      - design,
-      - marketing,
-      - backend,
-      - frontend,
-      - and every framework imaginable,
-      
-      be careful.
-      
-      Experienced professionals are comfortable saying:
-      
-      "I haven't done that exact feature before, but I can research it."
-      
-      Honesty builds trust.
-      
-      ### 5. They want you to own your website
-      
-      This is one of the biggest signs of professionalism.
-      
-      You should own:
-      
-      - your domain,
-      - your hosting account,
-      - your code repository,
-      - your website logins.
-      
-      Good developers don't trap clients.
-      
-      They earn loyalty through good service, not dependency.
-      
-      ## Warning signs you shouldn't ignore
-      
-      These don't automatically mean disaster, but they deserve attention.
-      
-      ### "Pay everything upfront."
-      
-      Reasonable deposits are normal.
-      
-      100% before work starts usually isn't.
-      
-      ### Extremely cheap pricing
-      
-      Cheap websites often become expensive repairs.
-      
-      ### No written scope
-      
-      If nothing is documented, expectations become arguments later.
-      
-      ### Slow communication before hiring
-      
-      People rarely become more responsive after receiving payment.
-      
-      ### Vague answers
-      
-      If they can't explain their process now, it won't improve during the project.
-      
-      ## Questions to ask before paying anyone
-      
-      Instead of technical questions, ask:
-      
-      ### What does your process look like?
-      
-      Professionals have systems.
-      
-      ### What happens after launch?
-      
-      Support matters.
-      
-      ### Who owns everything?
-      
-      The answer should always be you.
-      
-      ### Can I see similar projects?
-      
-      Relevant experience matters more than a huge portfolio.
-      
-      ### How are payments structured?
-      
-      Milestones protect both sides.
-      
-      ## Trust patterns, not promises
-      
-      The biggest hiring mistakes usually look obvious afterward.
-      
-      People often say:
-      
-      - "I ignored the warning signs."
-      - "I focused only on price."
-      - "I never asked about ownership."
-      - "I assumed the portfolio proved everything."
-      
-      A single green flag doesn't guarantee success.
-      
-      But patterns tell you almost everything.
-      
-      And the more carefully you hire, the less likely you'll need someone else to fix the project later.
-      `,
+Most business owners aren't developers.
+
+You probably don't know React, hosting, APIs, or databases — and honestly, you shouldn't have to.
+
+The problem is that hiring a developer often feels like buying something you can't inspect yourself. You can see a finished website, but you can't easily tell whether the work behind it is good.
+
+That's exactly why so many businesses end up overpaying, getting ghosted, or paying twice for the same website.
+
+## Why hiring a developer feels so risky
+
+Unlike hiring a plumber or buying a car, you can't easily judge software quality with your own eyes.
+
+Many business owners hire based on:
+
+- Price
+- Portfolio screenshots
+- Friend recommendations
+- Confidence during sales calls
+
+Unfortunately, these things alone don't predict whether the project will actually succeed.
+
+Across Reddit, Quora, and business communities, the same complaints appear repeatedly:
+
+- "The developer stopped replying."
+- "Everything broke after launch."
+- "I don't even own my website."
+- "I had to hire someone else to rebuild it."
+
+Most of these problems started before money changed hands.
+
+## The habits good developers almost always have
+
+After years of seeing successful and failed projects, certain patterns show up repeatedly.
+
+### 1. They ask questions before quoting
+
+Bad developers promise quickly. Good developers investigate first.
+
+Expect questions like:
+
+- Who are your customers?
+- What's your goal?
+- Do you need leads or online sales?
+- Who will manage the website later?
+- Do you already own a domain?
+
+If someone immediately gives a price without understanding your business, they're probably guessing.
+
+### 2. They explain things in plain English
+
+You shouldn't feel confused after talking with your own developer.
+
+Good developers explain why something matters, what the trade-offs are, and how decisions affect your business. They don't hide behind technical buzzwords.
+
+Because at the end of the day, you're paying for results — not vocabulary.
+
+### 3. They talk about process, not only code
+
+Most failed projects are communication failures, not technical failures.
+
+Good developers discuss milestones, timelines, revisions, testing, launch plans, and support after delivery.
+
+If all they talk about is frameworks and technologies, they may be thinking like programmers instead of business partners.
+
+### 4. They admit what they don't know
+
+Nobody is an expert in everything.
+
+If someone claims they master AI, SEO, mobile apps, blockchain, design, marketing, backend, frontend, and every framework imaginable — be careful.
+
+Experienced professionals are comfortable saying: *"I haven't done that exact feature before, but I can research it."*
+
+Honesty builds trust.
+
+### 5. They want you to own your website
+
+This is one of the biggest signs of professionalism.
+
+You should own your domain, hosting account, code repository, and website logins.
+
+Good developers don't trap clients. They earn loyalty through good service, not dependency.
+
+## Warning signs you shouldn't ignore
+
+These don't automatically mean disaster, but they deserve attention.
+
+- **"Pay everything upfront."** — Reasonable deposits are normal. 100% before work starts usually isn't.
+- **Extremely cheap pricing** — Cheap websites often become expensive repairs.
+- **No written scope** — If nothing is documented, expectations become arguments later.
+- **Slow communication before hiring** — People rarely become more responsive after receiving payment.
+- **Vague answers** — If they can't explain their process now, it won't improve during the project.
+
+## Questions to ask before paying anyone
+
+Instead of technical questions, ask:
+
+- **What does your process look like?** — Professionals have systems.
+- **What happens after launch?** — Support matters.
+- **Who owns everything?** — The answer should always be you.
+- **Can I see similar projects?** — Relevant experience matters more than a huge portfolio.
+- **How are payments structured?** — Milestones protect both sides.
+
+## Trust patterns, not promises
+
+The biggest hiring mistakes usually look obvious afterward.
+
+People often say:
+
+- "I ignored the warning signs."
+- "I focused only on price."
+- "I never asked about ownership."
+- "I assumed the portfolio proved everything."
+
+A single green flag doesn't guarantee success. But patterns tell you almost everything.
+
+And the more carefully you hire, the less likely you'll need someone else to fix the project later.
+`,
 
         faqs: [
             {
