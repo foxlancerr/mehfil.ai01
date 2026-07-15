@@ -20,9 +20,6 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://mehfils.org";
 
 export const metadata: Metadata = {
-   verification: {
-    google: "s59-L7We68kSEj3xJj1fHL2kbgrmddkc-vRnDvi_0B0",
-  },
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Mehfil.ai — Web Development, AI Automation & Digital Marketing Agency",
